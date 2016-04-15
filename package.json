@@ -1,5 +1,5 @@
 {
-  "name": "markdownify",
+  "name": "electron-markdownify",
   "version": "1.0.0",
   "description": "A minimal Markdown Editor",
   "main": "main.js",
