@@ -2,7 +2,7 @@
 
 **A minimal Markdown Editor**
 
-This is a minimal Markdown Editor based on Electron application based on the [Electron](electron.atom.io).
+This is a minimal Markdown Editor based on [Electron](electron.atom.io).
 
 ## How To Use
 
