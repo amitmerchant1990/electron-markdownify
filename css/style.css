@@ -1,0 +1,21 @@
+html, body, section, .full-height {
+    height: 100%;
+}
+
+#pad{
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#markdown {
+    overflow: auto;
+    border-left: 1px solid black;
+}

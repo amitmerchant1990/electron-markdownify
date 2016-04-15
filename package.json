@@ -1,0 +1,32 @@
+{
+  "name": "markdownify",
+  "version": "1.0.0",
+  "description": "A minimal Markdown Editor",
+  "main": "main.js",
+  "productName": "Markdownify",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron/electron-quick-start.git"
+  },
+  "keywords": [
+    "electron",
+    "markdown",
+    "plain",
+    "node",
+    "minimal",
+    "editor",
+    "preview"
+  ],
+  "author": "Amit Merchant",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/electron/electron-quick-start/issues"
+  },
+  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.0"
+  }
+}
