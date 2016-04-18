@@ -4,7 +4,6 @@
  */
 
 window.onload = function() {
-  //var converter = new showdown.Converter();
   var plainText = document.getElementById('plainText');
   var markdownArea = document.getElementById('markdown');
 
