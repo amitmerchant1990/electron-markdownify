@@ -1,6 +1,6 @@
 {
   "name": "Electron Markdownify",
   "tagline": "A minimal Markdown editor based on Electron",
-  "body": "# Markdownify\r\n\r\n**A minimal Markdown Editor**\r\n\r\nThis is a minimal Markdown Editor based on [Electron](http://electron.atom.io).\r\n\r\n![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)\r\n\r\n## How To Use\r\n\r\nDownload this project, and run\r\n\r\n````\r\n$> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP\r\n$> npm install && npm start\r\n```\r\n\r\n#### License\r\n\r\nMIT\r\n",
+  "body": "# Electron Markdownify\r\n\r\n> A minimal Markdown Editor\r\n\r\nThis is a minimal Markdown Editor desktop app based on [Electron](http://electron.atom.io).\r\n\r\n![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)\r\n\r\n## How To Use\r\n\r\nDownload this project, and run\r\n\r\n````\r\n$> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP\r\n$> npm install && npm start\r\n```\r\n\r\n## Library Used\r\n\r\n[Marked - a markdown parser](https://github.com/chjj/marked)\r\n\r\n#### License\r\n\r\nMIT\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
