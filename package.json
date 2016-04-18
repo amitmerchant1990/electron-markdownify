@@ -1,9 +1,9 @@
 {
   "name": "electron-markdownify",
   "version": "1.0.0",
-  "description": "A minimal Markdown Editor",
+  "description": "A minimalist Markdown Editor",
   "main": "main.js",
-  "productName": "Markdownify",
+  "productName": "Electron Markdownify",
   "scripts": {
     "start": "electron main.js"
   },
