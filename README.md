@@ -4,6 +4,8 @@
 
 This is a minimal Markdown Editor based on [Electron](http://electron.atom.io).
 
+![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
+
 ## How To Use
 
 Download this project, and run
