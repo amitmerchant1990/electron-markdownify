@@ -2,7 +2,7 @@
 
 **A minimal Markdown Editor**
 
-This is a minimal Markdown Editor based on [Electron](http://electron.atom.io).
+This is a minimal Markdown Editor desktop app based on [Electron](http://electron.atom.io).
 
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
 
