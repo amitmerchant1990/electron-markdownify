@@ -15,9 +15,14 @@ $> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
 $> npm install && npm start
 ```
 
-## Library Used
+## Tools Used
 
-[Marked - a markdown parser](https://github.com/chjj/marked)
+Electron Markdownify is built on:
+
+- [Electron](http://electron.atom.io/)
+- [Node.js](https://nodejs.org/)
+- a little bit of [jQuery](https://jquery.com/)
+- [Marked - a markdown parser](https://github.com/chjj/marked)
 
 #### License
 
