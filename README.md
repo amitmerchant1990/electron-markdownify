@@ -1,4 +1,4 @@
-# Electron Markdownify
+# Electron Markdownify [![npm version](https://badge.fury.io/js/electron-markdownify.svg)](https://badge.fury.io/js/electron-markdownify)
 
 > A minimal Markdown Editor
 
