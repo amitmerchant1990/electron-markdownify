@@ -7,10 +7,14 @@
 </head>
 
 <body class="container-fluid">
-
+    <div class="pref">
+      <input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> HTML
+      <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);"> Preview
+    </div>
     <section class="row">
         <textarea class="col-md-6 full-height" id="plainText" placeholder="Write your Markdown here.." autofocus></textarea>
         <div class="col-md-6 full-height" id="markdown"></div>
+        <textarea class="col-md-6 full-height" id="htmlPreview" style="display:none;"></textarea>
     </section>
 
     <script src="js/marked.min.js"></script>
