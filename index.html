@@ -5,11 +5,10 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
-
 <body class="container-fluid">
     <div class="pref">
-      <input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> HTML
-      <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);"> Preview
+      <input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> <b>HTML</b>
+      <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);" checked="checked"> <b>Preview</b>
     </div>
     <section class="row">
         <textarea class="col-md-6 full-height" id="plainText" placeholder="Write your Markdown here.." autofocus></textarea>
@@ -19,6 +18,5 @@
 
     <script src="js/marked.min.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 </html>

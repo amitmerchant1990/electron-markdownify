@@ -23,6 +23,7 @@ Electron Markdownify is built on:
 - [Node.js](https://nodejs.org/)
 - a little bit of [jQuery](https://jquery.com/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
+- [showdown](http://showdownjs.github.io/showdown/)
 
 #### License
 
