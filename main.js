@@ -60,7 +60,7 @@ function createWindow () {
     }
   ];
 
-	Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
 
 // This method will be called when Electron has finished
