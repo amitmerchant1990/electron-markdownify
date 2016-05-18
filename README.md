@@ -14,7 +14,7 @@
     <img src="https://badge.fury.io/js/electron-markdownify.svg"
          alt="Gitter">
   </a>
-  
+
 </p>
 <br>
 
@@ -45,6 +45,7 @@ Electron Markdownify is built on:
 - a little bit of [jQuery](https://jquery.com/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
 - [showdown](http://showdownjs.github.io/showdown/)
+- [CodeMirror](http://codemirror.net/)
 
 #### License
 
