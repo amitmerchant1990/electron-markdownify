@@ -33,7 +33,7 @@ function createWindow () {
 
   //Set native menubar
   var template = [
-		{
+    {
       label: "File",
       submenu: [
         {label: "Quit", accelerator: "Command+Q", click: app.quit},
