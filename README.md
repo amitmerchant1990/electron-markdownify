@@ -32,6 +32,15 @@ Download this project, and run
 $> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
 $> npm install && npm start
 ```
+
+## Features
+
+* Preview Markdown and generate its relevant HTML.
+* Syntax highlighting
+* Dark/Light mode
+* Live preview
+* Cross platform
+
 ## Download
 
 You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.1.1) installable version of Markdownify for Windows, Darwin and Linux.
