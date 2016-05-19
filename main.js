@@ -7,6 +7,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 var Menu = require('menu');
 var dialog = require('dialog');
+var shell = require('shell');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -35,7 +36,15 @@ function createWindow () {
 		{
       label: "File",
       submenu: [
-        {label: "Quit", accelerator: "Command+Q", click: app.quit}
+        {label: "Quit", accelerator: "Command+Q", click: app.quit},
+        {label: "Open", accelerator: "CmdOrCtrl+O", click: function() {
+          var focusedWindow = BrowserWindow.getFocusedWindow();
+          focusedWindow.webContents.send('file-open');
+        }},
+        {label: "Save", accelerator: "CmdOrCtrl+S", click: function() {
+          var focusedWindow = BrowserWindow.getFocusedWindow();
+          focusedWindow.webContents.send('file-save');
+        }}
       ]
     },
     {
@@ -53,7 +62,13 @@ function createWindow () {
     {
       label: "Help",
       submenu: [
-        {label: "About", accelerator: "CmdOrCtrl+P", click: function () {
+        {label: "Documentation", click: function () {
+          shell.openExternal("https://github.com/amitmerchant1990/electron-markdownify/blob/master/README.md");
+        }},
+        {label: "Report Issue", click: function () {
+          shell.openExternal("https://github.com/amitmerchant1990/electron-markdownify/issues");
+        }},
+        {label: "About Markdownify", click: function () {
           dialog.showMessageBox({title: "About Markdownify", type:"info", message: "A minimal Markdown Editor desktop app. \nMIT Copyright (c) 2016 Amit Merchant <bullredeyes@gmail.com>", buttons: ["Close"] });
         }}
       ]

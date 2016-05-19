@@ -5,8 +5,12 @@
 
 var showdown  = require('showdown');
 var remote = require('electron').remote;
+var ipc = require('electron').ipcRenderer;
+var dialog = require('electron').remote.dialog;
+var fs = remote.require('fs');
 // `remote.require` since `Menu` is a main-process module.
 var buildEditorContextMenu = remote.require('electron-editor-context-menu');
+var currentValue = 0, currentValueTheme = 0;
 
 window.addEventListener('contextmenu', function(e) {
   // Only show the context menu in text editors.
@@ -46,26 +50,4 @@ window.onload = function() {
     html      = converter.makeHtml(markdownText);
     document.getElementById("htmlPreview").value = html;
   });
-}
-
-var currentValue = 0;
-function clkPref(opt) {
-    currentValue = opt.value;
-    if ( currentValue=='preview' ) {
-      document.getElementById("htmlPreview").style.display = "none";
-      document.getElementById("markdown").style.display = "block";
-    } else if ( currentValue=='html' ) {
-      document.getElementById("markdown").style.display = "none";
-      document.getElementById("htmlPreview").style.display = "block";
-    }
-}
-
-var currentValueTheme = 0;
-function changeTheme(opt) {
-    currentValueTheme = opt.value;
-    if ( currentValueTheme=='light' ) {
-      cm.setOption("theme", "default");
-    } else if ( currentValueTheme=='dark' ) {
-      cm.setOption("theme", "base16-dark");
-    }
 }
