@@ -26,7 +26,7 @@ Install it using : `npm install electron-markdownify`
 
 *Or*
 
-Download this project, and run
+Clone this project, and run
 
 ````
 $> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
@@ -35,12 +35,15 @@ $> npm install && npm start
 
 ## Features
 
-* Preview Markdown and generate its relevant HTML.
+* LivePreview - Make changes, See changes
+  - Instantly see what your Markdown documents look like in HTML as you create them.
+  - While you type, LivePreview will automatically scroll to the current location you're editing.
 * Syntax highlighting
 * Dark/Light mode
 * Full screen mode
-* Live preview
+  - Write distraction free
 * Cross platform
+  - Windows, Mac and Linux ready.
 
 ## Download
 
@@ -48,11 +51,8 @@ You can [download](https://github.com/amitmerchant1990/electron-markdownify/rele
 
 ## Tools Used
 
-Electron Markdownify is built on:
-
 - [Electron](http://electron.atom.io/)
 - [Node.js](https://nodejs.org/)
-- a little bit of [jQuery](https://jquery.com/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
 - [showdown](http://showdownjs.github.io/showdown/)
 - [CodeMirror](http://codemirror.net/)
