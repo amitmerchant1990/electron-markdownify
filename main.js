@@ -8,6 +8,7 @@ const BrowserWindow = electron.BrowserWindow;
 var Menu = require('menu');
 var dialog = require('dialog');
 var shell = require('shell');
+const Config = require('./package.json');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -60,13 +61,23 @@ function createWindow () {
       ]
     },
     {
+      label: "View",
+      submenu: [
+        {label: "Toggle Full Screen", accelerator:"F11", click: function(){
+          var focusedWindow = BrowserWindow.getFocusedWindow();
+          var isFullScreen = focusedWindow.isFullScreen();
+          focusedWindow.setFullScreen(!isFullScreen);
+        }}
+      ]
+    },
+    {
       label: "Help",
       submenu: [
         {label: "Documentation", click: function () {
-          shell.openExternal("https://github.com/amitmerchant1990/electron-markdownify/blob/master/README.md");
+          shell.openExternal(Config.repository.docs);
         }},
         {label: "Report Issue", click: function () {
-          shell.openExternal("https://github.com/amitmerchant1990/electron-markdownify/issues");
+          shell.openExternal(Config.bugs.url);
         }},
         {label: "About Markdownify", click: function () {
           dialog.showMessageBox({title: "About Markdownify", type:"info", message: "A minimal Markdown Editor desktop app. \nMIT Copyright (c) 2016 Amit Merchant <bullredeyes@gmail.com>", buttons: ["Close"] });

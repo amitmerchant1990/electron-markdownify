@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amitmerchant1990/markdownify.git"
+    "url": "git+https://github.com/amitmerchant1990/markdownify.git",
+    "docs": "https://github.com/amitmerchant1990/electron-markdownify/blob/master/README.md"
   },
   "keywords": [
     "electron",

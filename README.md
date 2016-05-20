@@ -38,6 +38,7 @@ $> npm install && npm start
 * Preview Markdown and generate its relevant HTML.
 * Syntax highlighting
 * Dark/Light mode
+* Full screen mode
 * Live preview
 * Cross platform
 
