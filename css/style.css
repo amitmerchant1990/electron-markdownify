@@ -19,18 +19,26 @@ html, body, section, .full-height {
     overflow: auto;
 }
 
-.pref{
+.pref {
   float: right;
   width: 50%;
   text-align: right;
   padding-right: 10px;
 }
 
-.mode{
+.mode {
   float: left;
   width: 50%;
   text-align: left;
   padding-left: 10px;
+}
+
+.mdHtml {
+  display:none;
+  width:100%;
+  height:100%;
+  resize:none;
+  overflow:auto;
 }
 
 ::-webkit-scrollbar {
