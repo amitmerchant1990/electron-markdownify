@@ -12,7 +12,7 @@ ipc.on('file-save', function() {
        if(err){
            alert("An error ocurred creating the file "+ err.message)
        }
-       alert("The file has been succesfully saved");
+       alert("The file has been succesfully saved", "Markdownify");
     });
   });
 });
