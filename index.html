@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="css/base16-dark.css">
   </head>
   <body class="container-fluid">
-      <div style="position:fixed;top: 0;left: 0;z-index: 999;width: 100%;height: 23px;">
+      <div class="optContainer">
         <div class="mode">
           <input type="radio" name="changeTheme" value="light" onclick="changeTheme(this);" checked="checked"> <b>Light</b>
           <input type="radio" name="changeTheme" value="dark" onclick="changeTheme(this);"> <b>Dark</b>
@@ -18,7 +18,7 @@
           <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);" checked="checked"> <b>Preview</b>
         </div>
       </div>
-      <section class="row" style="padding-top: 22px;">
+      <section class="row" style="padding-top: 24px;">
           <div class="col-md-6 full-height" style="box-shadow: -10px 13px 6px 10px rgba(0,0,0,0.4);">
             <textarea  id="plainText" placeholder="Write your Markdown here.." autofocus></textarea>
           </div>

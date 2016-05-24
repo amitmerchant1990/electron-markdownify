@@ -5,6 +5,8 @@ const electron = require('electron');
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
+
+const mainPage = 'file://' + __dirname + '/index.html';
 var Menu = require('menu');
 var dialog = require('dialog');
 var shell = require('shell');
@@ -19,7 +21,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({width: 1400, height: 800, icon: __dirname+'/img/favicon.ico'});
 
   // and load the index.html of the app.
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
+  mainWindow.loadURL(mainPage);
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
