@@ -26,7 +26,7 @@ Install it using : `npm install electron-markdownify`
 
 *Or*
 
-Clone this project, and run
+Clone this repository, and run
 
 ````
 $> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
@@ -40,8 +40,9 @@ $> npm install && npm start
   - While you type, LivePreview will automatically scroll to the current location you're editing.
 * Syntax highlighting
 * Dark/Light mode
+* Toolbar for basic Markdown formatting
 * Full screen mode
-  - Write distraction free
+  - Write distraction free.
 * Cross platform
   - Windows, Mac and Linux ready.
 
