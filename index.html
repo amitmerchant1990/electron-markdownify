@@ -6,19 +6,36 @@
       <link href="css/style.css" rel="stylesheet">
       <link rel="stylesheet" href="css/codemirror.css">
       <link rel="stylesheet" href="css/base16-dark.css">
+      <link rel="stylesheet" href="css/font-awesome.min.css">
   </head>
   <body class="container-fluid">
       <div class="optContainer">
         <div class="mode">
-          <input type="radio" name="changeTheme" value="light" onclick="changeTheme(this);" checked="checked"> <b>Light</b>
-          <input type="radio" name="changeTheme" value="dark" onclick="changeTheme(this);"> <b>Dark</b>
+          <span class="toolContainer">
+            <a id="angleToolBar" title="Toolbar" class="fa fa-angle-double-right" onclick="showToolBar();" style="cursor: pointer;text-decoration:none;"></a>
+          </span>
+          <span>
+            <input type="radio" name="changeTheme" value="light" onclick="changeTheme(this);" checked="checked"> <label style="vertical-align: middle;"><b>Light</b></label>
+            <input type="radio" name="changeTheme" value="dark" onclick="changeTheme(this);"> <label style="vertical-align: middle;"><b>Dark</b></label>
+          </span>
         </div>
         <div class="pref">
-          <input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> <b>HTML</b>
-          <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);" checked="checked"> <b>Preview</b>
+          <input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> <label style="vertical-align: middle;"><b>HTML</b></label>
+          <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);" checked="checked"> <label style="vertical-align: middle;"><b>Preview</b></label>
         </div>
       </div>
-      <section class="row" style="padding-top: 24px;">
+      <div id="toolbarArea">
+        <div style="padding-left:10px;">
+          <a onclick="toggleFormat('bold');" title="Bold" class="fa fa-bold editor-toolbar"></a>
+          <a onclick="toggleFormat('italic');" title="Italic" class="fa fa-italic editor-toolbar"></a>
+          <a onclick="toggleFormat('strikethrough');" title="StrikeThrough" class="fa fa-strikethrough editor-toolbar"></a>
+          <i class="separator">|</i>
+          <a onclick="toggleBlockquote();" title="Quote" class="fa fa-quote-left editor-toolbar"></a>
+          <a onclick="toggleUnorderedList();" title="Unordered List" class="fa fa-list-ul editor-toolbar"></a>
+          <a onclick="toggleOrderedList();" title="Ordered List" class="fa fa-list-ol editor-toolbar"></a>
+        </div>
+      </div>
+      <section class="row" id="editArea" style="padding-top: 24px;">
           <div class="col-md-6 full-height" style="box-shadow: -10px 13px 6px 10px rgba(0,0,0,0.4);">
             <textarea  id="plainText" placeholder="Write your Markdown here.." autofocus></textarea>
           </div>
@@ -32,6 +49,7 @@
       <script src="js/libs/codemirror.js"></script>
       <script src="js/markdown/markdown.js"></script>
       <script src="js/app.js"></script>
+      <script src="js/format.js"></script>
       <script src="js/functions.js"></script>
       <script src="js/ipc_renderer.js"></script>
   </body>

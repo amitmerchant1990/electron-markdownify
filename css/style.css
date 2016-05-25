@@ -55,6 +55,53 @@ html, body, section, .full-height {
   outline: 1px solid #ECE6E6;
 }
 
+#toolbarArea{
+  position: fixed;
+  top: 25px;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 28px;
+  display:none;
+  /*box-shadow: 0px 1px 11px -2px rgba(0,0,0,0.75);*/
+  border-bottom: 1px #BFBFBF solid;
+}
+
+.editor-toolbar{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none!important;
+    color: #2c3e50!important;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 24px;
+    padding: 4px 10px 0px 6px;
+}
+
+.editor-toolbar:hover {
+    background: #fcfcfc;
+    border-color: #95a5a6;
+}
+
+.separator {
+    display: inline-block;
+    width: 0;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #fff;
+    color: transparent;
+    text-indent: -10px;
+    margin: 0 6px;
+}
+
+.toolContainer{
+  width: 16px;
+  float: left;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
