@@ -48,7 +48,7 @@ $> npm install && npm start
 
 ## Download
 
-You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.1.1) installable version of Markdownify for Windows, Darwin and Linux.
+You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.1.3) installable version of Markdownify for Windows, Darwin and Linux.
 
 ## Tools Used
 
