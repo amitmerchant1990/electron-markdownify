@@ -28,7 +28,7 @@ Install it using : `npm install electron-markdownify`
 
 Clone this repository, and run
 
-````
+```
 $> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
 $> npm install && npm start
 ```
