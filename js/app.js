@@ -42,7 +42,7 @@ window.onload = function() {
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
     //Md -> Preview
-    html = marked(markdownText);
+    html = marked(markdownText,{gfm: true});
     markdownArea.innerHTML = html;
 
     //Md -> HTML

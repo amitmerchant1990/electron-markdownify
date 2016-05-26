@@ -18,7 +18,7 @@ var changeTheme = function (opt) {
   }
 }
 
-function showToolBar(){
+var showToolBar = function () {
   if(document.getElementById("toolbarArea").style.display == "block"){
     document.getElementById("angleToolBar").className = "";
     document.getElementById("angleToolBar").className = "fa fa-angle-double-right";
