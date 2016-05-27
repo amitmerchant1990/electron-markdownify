@@ -2,7 +2,7 @@
 
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: monospace;
+  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
   height: 100%;
   color: black;
 }
