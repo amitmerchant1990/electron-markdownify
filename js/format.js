@@ -10,7 +10,7 @@ function toggleFormat(type){
   }
   text = cm.getSelection();
   var start = start_chars;
-   var end = start_chars;
+  var end = start_chars;
   text = text.split("**").join("");
   text = text.split("__").join("");
   if(type == "bold") {
