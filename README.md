@@ -20,19 +20,6 @@
 
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
 
-## How To Use
-
-Install it using : `npm install electron-markdownify`
-
-*Or*
-
-Clone this repository, and run
-
-```
-$> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
-$> npm install && npm start
-```
-
 ## Features
 
 * LivePreview - Make changes, See changes
@@ -45,6 +32,19 @@ $> npm install && npm start
   - Write distraction free.
 * Cross platform
   - Windows, Mac and Linux ready.
+
+## How To Use
+
+Install it using : `npm install electron-markdownify`
+
+*Or*
+
+Clone this repository, and run
+
+```
+$> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
+$> npm install && npm start
+```
 
 ## Download
 
