@@ -63,3 +63,11 @@ ipc.on('ctrl+alt+i', function() {
 ipc.on('ctrl+t', function() {
   drawTable();
 });
+
+ipc.on('ctrl+f', function() {
+  cm.execCommand('find');
+});
+
+ipc.on('ctrl+shift+f', function() {
+  cm.execCommand('replace');
+});

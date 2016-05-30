@@ -126,6 +126,14 @@ function createWindow () {
   globalShortcut.register('CmdOrCtrl+t', function() {
       focusedWindow.webContents.send('ctrl+t');
   });
+
+  globalShortcut.register('CmdOrCtrl+f', function() {
+      focusedWindow.webContents.send('ctrl+f');
+  });
+
+  globalShortcut.register('CmdOrCtrl+Shift+f', function() {
+      focusedWindow.webContents.send('ctrl+shift+f');
+  });
 }
 
 // This method will be called when Electron has finished
