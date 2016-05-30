@@ -37,7 +37,7 @@ function createWindow () {
   //Open anchor links in browser
   mainWindow.webContents.on('will-navigate', function(e, url) {
     e.preventDefault();
-    require('shell').openExternal(url);
+    shell.openExternal(url);
   });
 
   //Set native menubar
