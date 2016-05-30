@@ -28,11 +28,17 @@
         <div style="padding-left:10px;">
           <a onclick="toggleFormat('bold');" title="Bold" class="fa fa-bold editor-toolbar"></a>
           <a onclick="toggleFormat('italic');" title="Italic" class="fa fa-italic editor-toolbar"></a>
+          <a onclick="toggleHeadingSmaller();" title="Header" class="fa fa-header editor-toolbar"></a>
           <a onclick="toggleFormat('strikethrough');" title="StrikeThrough" class="fa fa-strikethrough editor-toolbar"></a>
           <i class="separator">|</i>
           <a onclick="toggleBlockquote();" title="Quote" class="fa fa-quote-left editor-toolbar"></a>
           <a onclick="toggleUnorderedList();" title="Unordered List" class="fa fa-list-ul editor-toolbar"></a>
           <a onclick="toggleOrderedList();" title="Ordered List" class="fa fa-list-ol editor-toolbar"></a>
+          <i class="separator">|</i>
+          <a onclick="drawLink();" title="Create Link" class="fa fa-link editor-toolbar"></a>
+          <a onclick="drawImage();" title="Insert Image" class="fa fa-picture-o editor-toolbar"></a>
+          <a onclick="drawTable();" title="Insert Table" class="fa fa-table editor-toolbar"></a>
+          <a onclick="drawHorizontalRule();" title="Insert Horizontal Rule" class="fa fa-minus editor-toolbar"></a>
         </div>
       </div>
       <section class="row" id="editArea" style="padding-top: 24px;">

@@ -1,3 +1,10 @@
+var insertTexts = {
+  link: ["[", "](#url#)"],
+  image: ["![", "](#url#)"],
+  table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text     | Text     |\n\n"],
+  horizontalRule: ["", "\n\n-----\n\n"]
+};
+
 function toggleFormat(type){
   var startPoint = cm.getCursor("start");
   var endPoint = cm.getCursor("end");
@@ -116,5 +123,132 @@ function _toggleLine(cm, name) {
       });
     })(i);
   }
+  cm.focus();
+}
+
+// function for drawing a link
+function drawLink() {
+  var stat = getState(cm);
+  var url = "http://";
+  _replaceSelection(cm, stat.link, insertTexts.link, url);
+}
+
+// function for drawing an image
+function drawImage() {
+  var stat = getState(cm);
+  var url = "http://";
+  _replaceSelection(cm, stat.image, insertTexts.image, url);
+}
+
+// function for drawing a image
+function drawTable() {
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.table, insertTexts.table);
+}
+
+// function for drawing a horizontal rule.
+function drawHorizontalRule() {
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, insertTexts.horizontalRule);
+}
+
+// function for adding heading
+function toggleHeadingSmaller(editor) {
+	_toggleHeading("smaller");
+}
+
+function _toggleHeading(direction, size) {
+  var startPoint = cm.getCursor("start");
+  var endPoint = cm.getCursor("end");
+  for(var i = startPoint.line; i <= endPoint.line; i++) {
+    (function(i) {
+      var text = cm.getLine(i);
+      var currHeadingLevel = text.search(/[^#]/);
+
+      if(direction !== undefined) {
+        if(currHeadingLevel <= 0) {
+          if(direction == "bigger") {
+            text = "###### " + text;
+          } else {
+            text = "# " + text;
+          }
+        } else if(currHeadingLevel == 6 && direction == "smaller") {
+          text = text.substr(7);
+        } else if(currHeadingLevel == 1 && direction == "bigger") {
+          text = text.substr(2);
+        } else {
+          if(direction == "bigger") {
+            text = text.substr(1);
+          } else {
+            text = "#" + text;
+          }
+        }
+      } else {
+        if(size == 1) {
+          if(currHeadingLevel <= 0) {
+            text = "# " + text;
+          } else if(currHeadingLevel == size) {
+            text = text.substr(currHeadingLevel + 1);
+          } else {
+            text = "# " + text.substr(currHeadingLevel + 1);
+          }
+        } else if(size == 2) {
+          if(currHeadingLevel <= 0) {
+            text = "## " + text;
+          } else if(currHeadingLevel == size) {
+            text = text.substr(currHeadingLevel + 1);
+          } else {
+            text = "## " + text.substr(currHeadingLevel + 1);
+          }
+        } else {
+          if(currHeadingLevel <= 0) {
+            text = "### " + text;
+          } else if(currHeadingLevel == size) {
+            text = text.substr(currHeadingLevel + 1);
+          } else {
+            text = "### " + text.substr(currHeadingLevel + 1);
+          }
+        }
+      }
+
+      cm.replaceRange(text, {
+        line: i,
+        ch: 0
+      }, {
+        line: i,
+        ch: 99999999999999
+      });
+    })(i);
+  }
+  cm.focus();
+}
+
+function _replaceSelection(cm, active, startEnd, url) {
+  var text;
+  var start = startEnd[0];
+  var end = startEnd[1];
+  var startPoint = cm.getCursor("start");
+  var endPoint = cm.getCursor("end");
+  if(url) {
+    end = end.replace("#url#", url);
+  }
+  if(active) {
+    text = cm.getLine(startPoint.line);
+    start = text.slice(0, startPoint.ch);
+    end = text.slice(startPoint.ch);
+    cm.replaceRange(start + end, {
+      line: startPoint.line,
+      ch: 0
+    });
+  } else {
+    text = cm.getSelection();
+    cm.replaceSelection(start + text + end);
+
+    startPoint.ch += start.length;
+    if(startPoint !== endPoint) {
+      endPoint.ch += start.length;
+    }
+  }
+  cm.setSelection(startPoint, endPoint);
   cm.focus();
 }
