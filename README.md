@@ -14,7 +14,7 @@
     <img src="https://badge.fury.io/js/electron-markdownify.svg"
          alt="Gitter">
   </a>
-
+  [![Join the chat at https://gitter.im/amitmerchant1990/electron-markdownify](https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg)](https://gitter.im/amitmerchant1990/electron-markdownify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 </p>
 <br>
 
