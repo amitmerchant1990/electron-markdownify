@@ -22,6 +22,8 @@
 
 ## Features
 
+[![Join the chat at https://gitter.im/amitmerchant1990/electron-markdownify](https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg)](https://gitter.im/amitmerchant1990/electron-markdownify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 * LivePreview - Make changes, See changes
   - Instantly see what your Markdown documents look like in HTML as you create them.
   - While you type, LivePreview will automatically scroll to the current location you're editing.
