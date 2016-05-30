@@ -11,6 +11,7 @@ var Menu = require('menu');
 var dialog = require('dialog');
 var shell = require('shell');
 const Config = require('./package.json');
+var globalShortcut = require('global-shortcut');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -95,6 +96,36 @@ function createWindow () {
   ];
 
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+
+  // Regestering global shortcuts for formatting
+  var focusedWindow = BrowserWindow.getFocusedWindow();
+  globalShortcut.register('CmdOrCtrl+b', function() {
+      focusedWindow.webContents.send('ctrl+b');
+  });
+
+  globalShortcut.register('CmdOrCtrl+i', function() {
+      focusedWindow.webContents.send('ctrl+i');
+  });
+
+  globalShortcut.register('CmdOrCtrl+/', function() {
+      focusedWindow.webContents.send('ctrl+/');
+  });
+
+  globalShortcut.register('CmdOrCtrl+l', function() {
+      focusedWindow.webContents.send('ctrl+l');
+  });
+
+  globalShortcut.register('CmdOrCtrl+h', function() {
+      focusedWindow.webContents.send('ctrl+h');
+  });
+
+  globalShortcut.register('CmdOrCtrl+Alt+i', function() {
+      focusedWindow.webContents.send('ctrl+alt+i');
+  });
+
+  globalShortcut.register('CmdOrCtrl+t', function() {
+      focusedWindow.webContents.send('ctrl+t');
+  });
 }
 
 // This method will be called when Electron has finished

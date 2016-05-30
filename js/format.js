@@ -153,7 +153,7 @@ function drawHorizontalRule() {
 }
 
 // function for adding heading
-function toggleHeadingSmaller(editor) {
+function toggleHeadingSmaller() {
 	_toggleHeading("smaller");
 }
 

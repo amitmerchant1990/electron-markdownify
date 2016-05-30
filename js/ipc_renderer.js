@@ -35,3 +35,31 @@ ipc.on('file-open', function() {
     });
   });
 });
+
+ipc.on('ctrl+b', function() {
+  toggleFormat('bold');
+});
+
+ipc.on('ctrl+i', function() {
+  toggleFormat('italic');
+});
+
+ipc.on('ctrl+/', function() {
+  toggleFormat('strikethrough');
+});
+
+ipc.on('ctrl+l', function() {
+  drawLink();
+});
+
+ipc.on('ctrl+h', function() {
+  toggleHeadingSmaller();
+});
+
+ipc.on('ctrl+alt+i', function() {
+  drawImage();
+});
+
+ipc.on('ctrl+t', function() {
+  drawTable();
+});
