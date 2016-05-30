@@ -54,7 +54,6 @@ You can [download](https://github.com/amitmerchant1990/electron-markdownify/rele
 
 - [Electron](http://electron.atom.io/)
 - [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
 - [showdown](http://showdownjs.github.io/showdown/)
 - [CodeMirror](http://codemirror.net/)
 
