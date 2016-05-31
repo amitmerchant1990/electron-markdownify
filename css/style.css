@@ -102,6 +102,18 @@ html, body, section, .full-height {
   float: left;
 }
 
+input[type="radio"]:checked:before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 3px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #442178;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
