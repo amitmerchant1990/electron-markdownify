@@ -20,7 +20,7 @@
 
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
 
-## Features
+## Key Features
 
 * LivePreview - Make changes, See changes
   - Instantly see what your Markdown documents look like in HTML as you create them.
@@ -50,7 +50,9 @@ $> npm install && npm start
 
 You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.1.3) installable version of Markdownify for Windows, Darwin and Linux.
 
-## Tools Used
+## Credits
+
+This software uses code from several open source packages.
 
 - [Electron](http://electron.atom.io/)
 - [Node.js](https://nodejs.org/)

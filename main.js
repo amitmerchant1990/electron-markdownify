@@ -48,11 +48,11 @@ function createWindow () {
       submenu: [
         {label: "Quit", accelerator: "Command+Q", click: app.quit},
         {label: "Open", accelerator: "CmdOrCtrl+O", click: function() {
-          var focusedWindow = BrowserWindow.getFocusedWindow();
+          let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-open');
         }},
         {label: "Save", accelerator: "CmdOrCtrl+S", click: function() {
-          var focusedWindow = BrowserWindow.getFocusedWindow();
+          let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-save');
         }}
       ]
@@ -66,15 +66,24 @@ function createWindow () {
         {label: "Cut", accelerator: "CmdOrCtrl+X", role: "cut"},
         {label: "Copy", accelerator: "CmdOrCtrl+C", role: "copy"},
         {label: "Paste", accelerator: "CmdOrCtrl+V", role: "paste"},
-        {label: "Select All", accelerator: "CmdOrCtrl+A", role: 'selectall'}
+        {label: "Select All", accelerator: "CmdOrCtrl+A", role: 'selectall'},
+        {type: "separator"},
+        {label: "Search", accelerator: "CmdOrCtrl+F", click: function() {
+          let focusedWindow = BrowserWindow.getFocusedWindow();
+          focusedWindow.webContents.send('ctrl+f');
+        }},
+        {label: "Replace", accelerator: "CmdOrCtrl+Shift+F", click: function() {
+          let focusedWindow = BrowserWindow.getFocusedWindow();
+          focusedWindow.webContents.send('ctrl+shift+f');
+        }}
       ]
     },
     {
       label: "View",
       submenu: [
         {label: "Toggle Full Screen", accelerator:"F11", click: function(){
-          var focusedWindow = BrowserWindow.getFocusedWindow();
-          var isFullScreen = focusedWindow.isFullScreen();
+          let focusedWindow = BrowserWindow.getFocusedWindow();
+          let isFullScreen = focusedWindow.isFullScreen();
           focusedWindow.setFullScreen(!isFullScreen);
         }}
       ]
@@ -125,14 +134,6 @@ function createWindow () {
 
   globalShortcut.register('CmdOrCtrl+t', function() {
       focusedWindow.webContents.send('ctrl+t');
-  });
-
-  globalShortcut.register('CmdOrCtrl+f', function() {
-      focusedWindow.webContents.send('ctrl+f');
-  });
-
-  globalShortcut.register('CmdOrCtrl+Shift+f', function() {
-      focusedWindow.webContents.send('ctrl+shift+f');
   });
 }
 
