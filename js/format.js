@@ -252,3 +252,15 @@ function _replaceSelection(cm, active, startEnd, url) {
   cm.setSelection(startPoint, endPoint);
   cm.focus();
 }
+
+function toggleSidePanel() {
+  if(document.getElementById("previewPanel").style.display == "block"){
+    document.getElementById("previewPanel").style.display = "none";
+    document.getElementById("pref").style.display = "none";
+    document.getElementById("textPanel").style.width = "100%";
+  }else{
+    document.getElementById("previewPanel").style.display = "block";
+    document.getElementById("pref").style.display = "block";
+    document.getElementById("textPanel").style.width = "50%";
+  }
+}

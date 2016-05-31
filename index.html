@@ -20,7 +20,7 @@
             <input type="radio" name="changeTheme" value="dark" onclick="changeTheme(this);"> <label style="vertical-align: middle;"><b>Dark</b></label>
           </span>
         </div>
-        <div class="pref">
+        <div class="pref" id="pref">
           <input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> <label style="vertical-align: middle;"><b>HTML</b></label>
           <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);" checked="checked"> <label style="vertical-align: middle;"><b>Preview</b></label>
         </div>
@@ -40,13 +40,15 @@
           <a onclick="drawImage();" title="Insert Image [Ctrl+Alt+I]" class="fa fa-picture-o editor-toolbar"></a>
           <a onclick="drawTable();" title="Insert Table [Ctrl+Shift+T]" class="fa fa-table editor-toolbar"></a>
           <a onclick="drawHorizontalRule();" title="Insert Horizontal Rule" class="fa fa-minus editor-toolbar"></a>
+          <i class="separator">|</i>
+          <a onclick="toggleSidePanel();" title="Side-By-Side Panel Toggle" class="fa fa-columns editor-toolbar"></a>
         </div>
       </div>
       <section class="row" id="editArea" style="padding-top: 24px;">
-          <div class="col-md-6 full-height" style="box-shadow: -10px 13px 6px 10px rgba(0,0,0,0.4);">
+          <div class="col-md-6 full-height" style="box-shadow: -10px 13px 6px 10px rgba(0,0,0,0.4);" id="textPanel">
             <textarea  id="plainText" placeholder="Write your Markdown here.." autofocus></textarea>
           </div>
-          <div class="col-md-6 full-height" style="overflow-y: auto;">
+          <div class="col-md-6 full-height" style="overflow-y: auto;display:block;" id="previewPanel">
             <div id="markdown"></div>
             <textarea id="htmlPreview" class="mdHtml"></textarea>
           </div>
