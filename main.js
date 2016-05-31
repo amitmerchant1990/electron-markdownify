@@ -106,7 +106,7 @@ function createWindow () {
 
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
-  // Regestering global shortcuts for formatting
+  // Regestering global shortcuts for formatting markdown
   var focusedWindow = BrowserWindow.getFocusedWindow();
   globalShortcut.register('CmdOrCtrl+b', function() {
       focusedWindow.webContents.send('ctrl+b');
