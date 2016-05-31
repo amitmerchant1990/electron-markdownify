@@ -30,7 +30,8 @@ var cm = CodeMirror.fromTextArea(document.getElementById("plainText"), {
   lineNumbers: true,
   mode: "markdown",
   viewportMargin: 100000000000,
-  lineWrapping : true
+  lineWrapping : true,
+  autoCloseBrackets: true
 });
 
 window.onload = function() {
