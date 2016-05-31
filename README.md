@@ -25,6 +25,7 @@
 * LivePreview - Make changes, See changes
   - Instantly see what your Markdown documents look like in HTML as you create them.
   - While you type, LivePreview will automatically scroll to the current location you're editing.
+* GitHub Flavored Markdown  
 * Syntax highlighting
 * Dark/Light mode
 * Toolbar for basic Markdown formatting

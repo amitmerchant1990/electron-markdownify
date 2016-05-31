@@ -44,7 +44,7 @@ function createWindow () {
   //Set native menubar
   var template = [
     {
-      label: "File",
+      label: "&File",
       submenu: [
         {label: "Quit", accelerator: "Command+Q", click: app.quit},
         {label: "Open", accelerator: "CmdOrCtrl+O", click: function() {
@@ -58,7 +58,7 @@ function createWindow () {
       ]
     },
     {
-      label: "Edit",
+      label: "&Edit",
       submenu: [
         {label: "Undo", accelerator: "CmdOrCtrl+Z", role: "undo"},
         {label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", role: "redo"},
@@ -79,7 +79,7 @@ function createWindow () {
       ]
     },
     {
-      label: "View",
+      label: "&View",
       submenu: [
         {label: "Toggle Full Screen", accelerator:"F11", click: function(){
           let focusedWindow = BrowserWindow.getFocusedWindow();
@@ -89,7 +89,7 @@ function createWindow () {
       ]
     },
     {
-      label: "Help",
+      label: "&Help",
       submenu: [
         {label: "Documentation", click: function () {
           shell.openExternal(Config.repository.docs);
