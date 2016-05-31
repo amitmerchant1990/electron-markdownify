@@ -132,8 +132,8 @@ function createWindow () {
       focusedWindow.webContents.send('ctrl+alt+i');
   });
 
-  globalShortcut.register('CmdOrCtrl+t', function() {
-      focusedWindow.webContents.send('ctrl+t');
+  globalShortcut.register('CmdOrCtrl+Shift+t', function() {
+      focusedWindow.webContents.send('ctrl+shift+t');
   });
 }
 

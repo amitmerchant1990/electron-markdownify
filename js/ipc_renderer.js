@@ -60,7 +60,7 @@ ipc.on('ctrl+alt+i', function() {
   drawImage();
 });
 
-ipc.on('ctrl+t', function() {
+ipc.on('ctrl+shift+t', function() {
   drawTable();
 });
 
