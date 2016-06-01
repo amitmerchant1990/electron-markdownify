@@ -114,6 +114,35 @@ input[type="radio"]:checked:before {
     background: #442178;
 }
 
+.modal--default__content {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+    background: #f2f0ed;
+}
+
+.markdown-help-content {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.markdown-help-content tr {
+    line-height: 30px;
+}
+
+.markdown-help-content tr:nth-child(even) {
+    background-color: rgb(212, 212, 212);
+}
+
+.markdown-help-content tr:first-child td {
+    border-top: 0;
+}
+.markdown-help-content td {
+    border-top: 1px solid rgba(38,50,56,.1);
+    min-width: 180px;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }

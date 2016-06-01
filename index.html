@@ -42,6 +42,7 @@
           <a onclick="drawHorizontalRule();" title="Insert Horizontal Rule" class="fa fa-minus editor-toolbar"></a>
           <i class="separator">|</i>
           <a onclick="toggleSidePanel();" title="Side-By-Side Panel Toggle" class="fa fa-columns editor-toolbar"></a>
+          <a data-toggle="modal" data-target="#myModal" title="Markdown Help" class="fa fa-question-circle editor-toolbar"></a>
         </div>
       </div>
       <section class="row" id="editArea" style="padding-top: 24px;">
@@ -53,7 +54,82 @@
             <textarea id="htmlPreview" class="mdHtml"></textarea>
           </div>
       </section>
+      <!-- Markdown Help Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Markdown Help</h4>
+            </div>
+            <div class="modal-body">
+              <section class="modal--default__content" id="modal-body-region">
+                <table class="markdown-help-content">
+                  <tbody>
+                      <tr>
+                        <td><strong>Bold</strong></td>
+                        <td>**bold**</td>
+                      </tr>
+                      <tr>
+                        <td><i>Italics</i></td>
+                        <td>*italics*</td>
+                      </tr>
+                      <tr>
+                        <td><del>Strikethrough</del></td>
+                        <td>~~strikethrough~~</td>
+                      </tr>
+                      <tr>
+                        <td>Header</td>
+                        <td># H1     ## H2     ### H3</td>
+                      </tr>
+                      <tr>
+                        <td><li>item</li></td>
+                        <td>* item</td>
+                      </tr>
+                      <tr>
+                        <td>Blockquote</td>
+                        <td>&gt; blockquote</td>
+                      </tr>
+                      <tr>
+                        <td><span class="issue open">#123</span> (issue)</td>
+                        <td>#123</td>
+                      </tr>
+                      <tr>
+                        <td><a href="https://github.com/amitmerchant1990/electron-markdownify" target="_rick">Link</a></td>
+                        <td>[title](http://)</td>
+                      </tr>
+                      <tr>
+                        <td>Image</td>
+                        <td>![alt](http://)</td>
+                      </tr>
+                      <tr>
+                        <td><code>code</code></td>
+                        <td>`code`</td>
+                      </tr>
+                      <tr>
+                        <td>L<sup>a</sup>T<sub>e</sub>X</td>
+                        <td>$$LaTeX code$$</td>
+                      </tr>
+                      <tr>
+                        <td><pre style="display: inline-block; margin: 4px 0"><code><span class="keyword">var </span>code = <span class="string">"formatted"</span>;</code></pre></td>
+                        <td style="line-height: 100%">``` <i style="color: rgba(0,0,0,0.5)">(shift+enter for line break)</i><br>var code = "formatted";<br>```</td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+      <script src="js/libs/jquery.min.js"></script>
+      <script src="js/libs/bootstrap.min.js"></script>
+      <script>if (window.module) module = window.module;</script>
       <script src="js/libs/marked.min.js"></script>
       <script src="js/libs/codemirror.js"></script>
       <script src="js/libs/search.js"></script>
