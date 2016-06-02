@@ -8,6 +8,9 @@ var remote = require('electron').remote;
 var ipc = require('electron').ipcRenderer;
 var dialog = require('electron').remote.dialog;
 var fs = remote.require('fs');
+const storage = require('electron-json-storage');
+var console = require('console');
+
 // `remote.require` since `Menu` is a main-process module.
 var buildEditorContextMenu = remote.require('electron-editor-context-menu');
 var currentValue = 0, currentValueTheme = 0;
@@ -50,5 +53,19 @@ window.onload = function() {
     converter = new showdown.Converter();
     html      = converter.makeHtml(markdownText);
     document.getElementById("htmlPreview").value = html;
+  });
+
+  // Get the most recently saved file
+  storage.get('markdown-savefile', function(error, data) {
+    if (error) throw error;
+
+    if ('filename' in data) {
+      fs.readFile(data.filename, 'utf-8', function (err, data) {
+         if(err){
+             alert("An error ocurred while opening the file "+ err.message)
+         }
+         cm.getDoc().setValue(data);
+      });
+    }
   });
 }

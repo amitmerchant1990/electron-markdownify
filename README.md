@@ -29,6 +29,7 @@
 * Syntax highlighting
 * Dark/Light mode
 * Toolbar for basic Markdown formatting
+* App will keep alive in tray for quick usage
 * Full screen mode
   - Write distraction free.
 * Cross platform

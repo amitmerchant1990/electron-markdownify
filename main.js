@@ -60,7 +60,10 @@ function createWindow () {
     {
       label: "&File",
       submenu: [
-        {label: "Quit", accelerator: "Command+Q", click: app.quit},
+        {label: "New", accelerator: "CmdOrCtrl+N", click: function() {
+          var focusedWindow = BrowserWindow.getFocusedWindow();
+          focusedWindow.webContents.send('file-new');
+        }},
         {label: "Open", accelerator: "CmdOrCtrl+O", click: function() {
           let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-open');
@@ -68,7 +71,12 @@ function createWindow () {
         {label: "Save", accelerator: "CmdOrCtrl+S", click: function() {
           let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-save');
-        }}
+        }},
+        {label: "Save As", accelerator: "CmdOrCtrl+Shift+S", click: function() {
+          var focusedWindow = BrowserWindow.getFocusedWindow();
+          focusedWindow.webContents.send('file-save-as');
+        }},
+        {label: "Quit", accelerator: "Command+Q", click: app.quit}
       ]
     },
     {

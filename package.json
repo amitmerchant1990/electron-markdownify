@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "electron-editor-context-menu": "^1.1.1",
-    "showdown": "^1.3.0"
+    "showdown": "^1.3.0",
+    "electron-json-storage": "latest"
   }
 }
