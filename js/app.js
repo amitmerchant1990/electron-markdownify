@@ -45,13 +45,13 @@ window.onload = function() {
     // get value right from instance
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
+    converter = new showdown.Converter();
+    html      = converter.makeHtml(markdownText);
+
     //Md -> Preview
-    html = marked(markdownText,{gfm: true});
     markdownArea.innerHTML = html;
 
     //Md -> HTML
-    converter = new showdown.Converter();
-    html      = converter.makeHtml(markdownText);
     document.getElementById("htmlPreview").value = html;
   });
 
