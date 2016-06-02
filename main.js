@@ -10,12 +10,14 @@ const mainPage = 'file://' + __dirname + '/index.html';
 var Menu = require('menu');
 var dialog = require('dialog');
 var shell = require('shell');
+const tray = require('./tray');
 const Config = require('./package.json');
 var globalShortcut = require('global-shortcut');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let isQuitting = false;
 
 function createWindow () {
   // Create the browser window.
@@ -33,6 +35,18 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+  });
+
+  mainWindow.on('close', e => {
+    console.log('quit');
+    if (!isQuitting) {
+      e.preventDefault();
+      if (process.platform === 'darwin') {
+        app.hide();
+      } else {
+        mainWindow.hide();
+      }
+    }
   });
 
   //Open anchor links in browser
@@ -135,6 +149,8 @@ function createWindow () {
   globalShortcut.register('CmdOrCtrl+Shift+t', function() {
       focusedWindow.webContents.send('ctrl+shift+t');
   });
+
+  tray.create(mainWindow);
 }
 
 // This method will be called when Electron has finished
@@ -156,4 +172,8 @@ app.on('activate', function () {
   if (mainWindow === null) {
     createWindow();
   }
+});
+
+app.on('before-quit', function() {
+  isQuitting = true;
 });
