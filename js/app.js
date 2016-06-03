@@ -47,7 +47,7 @@ window.onload = function() {
     var markdownText = cMirror.getValue();
     //Md -> Preview
     html = marked(markdownText,{gfm: true});
-    markdownArea.innerHTML = html;
+    markdownArea.innerHTML = replaceWithEmojis(html);
 
     //Md -> HTML
     converter = new showdown.Converter();

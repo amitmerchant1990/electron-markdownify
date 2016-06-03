@@ -66,7 +66,7 @@ ipc.on('file-open', function() {
   storage.get('markdown-savefile', function(error, data) {
     if (error) alert(error);
 
-    var options = {'properties' : ['openFile']};
+    var options = {'properties' : ['openFile'], 'filters' : [{name: 'Markdown', 'extensions':['md']}]};
     if ('filename' in data) {
       options.defaultPath = data.filename;
     }
