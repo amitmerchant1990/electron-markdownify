@@ -29,6 +29,7 @@
 * Syntax highlighting
 * Dark/Light mode
 * Toolbar for basic Markdown formatting
+* Emoji support in preview :tada:
 * App will keep alive in tray for quick usage
 * Full screen mode
   - Write distraction free.
@@ -61,6 +62,7 @@ This software uses code from several open source packages.
 - [Marked - a markdown parser](https://github.com/chjj/marked)
 - [showdown](http://showdownjs.github.io/showdown/)
 - [CodeMirror](http://codemirror.net/)
+- Emojis are taken from [here](https://github.com/arvida/emoji-cheat-sheet.com)
 
 #### License
 
