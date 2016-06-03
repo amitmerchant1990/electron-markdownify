@@ -7,8 +7,8 @@ function saveAs() {
     }
     dialog.showSaveDialog(options, function (fileName) {
       if (fileName === undefined){
-          console.log("You didn't save the file");
-          return;
+        console.log("You didn't save the file");
+        return;
       }
 
       storage.set('markdown-savefile', {'filename' : fileName}, function(error) { if (error) alert(error); });
@@ -16,10 +16,10 @@ function saveAs() {
       var mdValue = cm.getValue();
       // fileName is a string that contains the path and filename created in the save file dialog.
       fs.writeFile(fileName, mdValue, function (err) {
-         if(err){
-             alert("An error ocurred creating the file "+ err.message)
-         }
-         alert("The file has been succesfully saved", "Markdownify");
+        if(err){
+          alert("An error ocurred creating the file "+ err.message)
+        }
+        alert("The file has been succesfully saved", "Markdownify");
       });
     });
   });
@@ -40,8 +40,8 @@ ipc.on('file-save', function() {
     if ('filename' in data) {
       var fileName = data.filename;
       if (fileName === undefined){
-          console.log("You didn't save the file");
-          return;
+        console.log("You didn't save the file");
+        return;
       }
 
       storage.set('markdown-savefile', {'filename' : fileName}, function(error) { if (error) alert(error); });
@@ -49,9 +49,9 @@ ipc.on('file-save', function() {
       var mdValue = cm.getValue();
       // fileName is a string that contains the path and filename created in the save file dialog.
       fs.writeFile(fileName, mdValue, function (err) {
-         if(err){
-             alert("An error ocurred creating the file "+ err.message)
-         }
+       if(err){
+         alert("An error ocurred creating the file "+ err.message)
+       }
       });
     } else {
       saveAs();
@@ -73,8 +73,8 @@ ipc.on('file-open', function() {
 
     dialog.showOpenDialog(options, function (fileName) {
       if (fileName === undefined){
-          console.log("You didn't open the file");
-          return;
+        console.log("You didn't open the file");
+        return;
       }
 
       storage.set('markdown-savefile', {'filename' : fileName[0]}, function(error) { if (error) alert(error); });
@@ -82,10 +82,10 @@ ipc.on('file-open', function() {
       var mdValue = cm.getValue();
       // fileName is a string that contains the path and filename created in the save file dialog.
       fs.readFile(fileName[0], 'utf-8', function (err, data) {
-         if(err){
-             alert("An error ocurred while opening the file "+ err.message)
-         }
-         cm.getDoc().setValue(data);
+        if(err){
+          alert("An error ocurred while opening the file "+ err.message)
+        }
+        cm.getDoc().setValue(data);
       });
     });
   });
