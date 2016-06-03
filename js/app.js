@@ -49,18 +49,19 @@ window.onload = function() {
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
     //Md -> Preview
-    html = marked(markdownText,{gfm: true});
+    html = marked(markdownText,{gfm: true, sanitize: true});
     markdownArea.innerHTML = replaceWithEmojis(html);
 
     //Md -> HTML
     converter = new showdown.Converter();
     html      = converter.makeHtml(markdownText);
     document.getElementById("htmlPreview").value = html;
+    
     if(this.isFileLoadedInitially){
       this.setClean();
       this.isFileLoadedInitially = false;
     }
-    
+
     if(this.currentFile!=''){
       this.updateWindowTitle(this.currentFile);
     }else{
