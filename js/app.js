@@ -10,6 +10,9 @@ var dialog = require('electron').remote.dialog;
 var fs = remote.require('fs');
 const storage = require('electron-json-storage');
 var console = require('console');
+var parsePath = require("parse-filepath");
+var currentFile = '';
+var isFileLoadedInitially = false;
 
 // `remote.require` since `Menu` is a main-process module.
 var buildEditorContextMenu = remote.require('electron-editor-context-menu');
@@ -53,6 +56,17 @@ window.onload = function() {
     converter = new showdown.Converter();
     html      = converter.makeHtml(markdownText);
     document.getElementById("htmlPreview").value = html;
+    if(this.isFileLoadedInitially){
+      this.setClean();
+      this.isFileLoadedInitially = false;
+    }
+    
+    if(this.currentFile!=''){
+      this.updateWindowTitle(this.currentFile);
+    }else{
+      this.updateWindowTitle();
+    }
+
   });
 
   // Get the most recently saved file
@@ -66,6 +80,8 @@ window.onload = function() {
          }
          cm.getDoc().setValue(data);
       });
+      this.isFileLoadedInitially = true;
+      this.currentFile = data.filename;
     }
   });
 }

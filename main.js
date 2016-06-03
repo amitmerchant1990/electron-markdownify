@@ -38,7 +38,6 @@ function createWindow () {
   });
 
   mainWindow.on('close', e => {
-    console.log('quit');
     if (!isQuitting) {
       e.preventDefault();
       if (process.platform === 'darwin') {

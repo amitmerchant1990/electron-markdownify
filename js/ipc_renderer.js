@@ -19,14 +19,17 @@ function saveAs() {
         if(err){
           alert("An error ocurred creating the file "+ err.message)
         }
-        alert("The file has been succesfully saved", "Markdownify");
       });
+      this.setClean();
+      this.currentFile = fileName;
+      this.updateWindowTitle(fileName);
     });
   });
 }
 
 ipc.on('file-new', function() {
   storage.set('markdown-savefile', {}, function(error) { if (error) alert(error); });
+  currentFile = '';
   cm.getDoc().setValue("");
 });
 
@@ -53,6 +56,9 @@ ipc.on('file-save', function() {
          alert("An error ocurred creating the file "+ err.message)
        }
       });
+      this.setClean();
+      this.currentFile = fileName;
+      updateWindowTitle(fileName);
     } else {
       saveAs();
     }
@@ -87,6 +93,8 @@ ipc.on('file-open', function() {
         }
         cm.getDoc().setValue(data);
       });
+      this.isFileLoadedInitially = true;
+      this.currentFile = fileName[0];
     });
   });
 });

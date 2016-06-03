@@ -31,3 +31,38 @@ var showToolBar = function () {
     document.getElementById("editArea").style.paddingTop = "53px";
   }
 }
+
+// Generations and clean state of CodeMirror
+var getGeneration = function () {
+  return this.cm.doc.changeGeneration();
+}
+
+var setClean = function () {
+  this.latestGeneration = this.getGeneration();
+}
+
+var isClean = function () {
+  return this.cm.doc.isClean(this.latestGeneration);
+}
+
+// Update window title on various events
+var updateWindowTitle = function (path) {
+  var appName = "Markdownify",
+      isClean = this.isClean(),
+      saveSymbol = "*",
+      parsedPath,
+      dir,
+      title;
+
+  if (path) {
+    parsedPath = parsePath(path);
+    dir = parsedPath.dirname || process.cwd();
+    title = parsedPath.basename + " - " + dir + " - " + appName;
+  } else {
+    title = "New document - " + appName;
+  }
+  if (!this.isClean()) {
+    title = saveSymbol + title;
+  }
+  document.title = title;
+}
