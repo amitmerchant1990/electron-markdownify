@@ -1,1 +1,10 @@
 node_modules
+
+# Mac
+.DS_Store
+
+# Local .npmrc preferences
+.npmrc
+
+# Built packages
+dist

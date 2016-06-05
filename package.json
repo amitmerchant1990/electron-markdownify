@@ -5,7 +5,8 @@
   "main": "main.js",
   "productName": "Markdownify",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "build": "rm -rf dist && gulp build"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,9 @@
   },
   "devDependencies": {
     "devtron": "^1.1.2",
-    "electron-prebuilt": "^0.36.0"
+    "electron-packager": "^7.0.3",
+    "electron-prebuilt": "^0.36.12",
+    "gulp": "^3.9.1"
   },
   "dependencies": {
     "electron-editor-context-menu": "^1.1.1",
