@@ -143,6 +143,16 @@ input[type="radio"]:checked:before {
     min-width: 180px;
 }
 
+.preview-dark-mode{
+    background: #151515;
+    color: #E0E0E0;
+}
+
+.preview-dark-mode textarea{
+    background: #151515;
+    color: #E0E0E0;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
