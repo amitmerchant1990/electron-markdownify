@@ -5,33 +5,101 @@ var insertTexts = {
   horizontalRule: ["", "\n\n-----\n\n"]
 };
 
-function toggleFormat(type){
-  var startPoint = cm.getCursor("start");
-  var endPoint = cm.getCursor("end");
+function toggleFormat(type) {
+  'use strict';
+  let modifiers = [];
   if(type == "bold") {
-    var start_chars = "**";
+    modifiers = ["**", "__"];
   } else if(type == "italic") {
-    var start_chars = "_";
+    modifiers = ["*", "_"];
   } else if(type == "strikethrough") {
-    var start_chars = "~~";
+    modifiers = ["~~"];
   }
-  text = cm.getSelection();
-  var start = start_chars;
-  var end = start_chars;
-  text = text.split("**").join("");
-  text = text.split("__").join("");
-  if(type == "bold") {
-    text = text.split("**").join("");
-    text = text.split("__").join("");
-  } else if(type == "italic") {
-    text = text.split("*").join("");
-    text = text.split("_").join("");
-  } else if(type == "strikethrough") {
-    text = text.split("~~").join("");
+  cm.operation(() => {
+    _toggleFormat(modifiers);
+  })
+}
+
+function _toggleFormat(modifiers) {
+  'use strict';
+  if (modifiers.length === 0) {
+    return;
   }
-  cm.replaceSelection(start + text + end);
-  startPoint.ch += start_chars.length;
-  endPoint.ch = startPoint.ch + text.length;
+  // exclude modifiers from selection
+  let allModifiers = ['**', "__", "~~", "*", "_", "`"];
+  let startPoint = cm.getCursor("start");
+  let endPoint = cm.getCursor("end");
+  for (let bFound = true; bFound; ) {
+    bFound = false;
+    for (let i = 0, len = allModifiers.length; i < len; i++) {
+      let modi = allModifiers[i];
+      if (cm.getSelection().startsWith(modi) && cm.getSelection().endsWith(modi) 
+        && endPoint.ch - startPoint.ch >= 2 * modi.length) {
+        bFound = true;
+        startPoint.ch += modi.length;
+        endPoint.ch -= modi.length;
+        break;
+      }
+    }
+  }
+  cm.setSelection(startPoint, endPoint);
+
+  // find modifiers around selection
+  let foundModifiers = [];
+  let modifierWidth = 0;
+  let rangeStartPoint = new CodeMirror.Pos(startPoint.line, startPoint.ch);
+  let rangeEndPoint = new CodeMirror.Pos(endPoint.line, endPoint.ch);
+  let lineLenght = cm.getLine(rangeEndPoint.line).length;
+  for (let bFound = true; bFound; ) {
+    bFound = false;
+    for (let i = 0, len = allModifiers.length; i < len; i++) {
+      let modi = allModifiers[i];
+      if (rangeStartPoint.ch < modi.length || rangeEndPoint.ch > lineLenght - modi.length) {
+        continue;
+      }
+      rangeStartPoint.ch -= modi.length;
+      rangeEndPoint.ch += modi.length;
+      let text = cm.getRange(rangeStartPoint, rangeEndPoint);
+      if (text.startsWith(modi) && text.endsWith(modi)) {
+        bFound = true;
+        foundModifiers.push(modi);
+        break;
+      }
+      rangeStartPoint.ch += modi.length;
+      rangeEndPoint.ch -= modi.length;
+    }
+  }
+
+  // find given modifier in array(foundModifiers)
+  let modifierIndex = -1;
+  for (let i = 0; i < modifiers.length; i++) {
+    modifierIndex = foundModifiers.indexOf(modifiers[i]);
+    if (modifierIndex != -1) {
+      break;
+    }
+  }
+
+  // if modifier found, delete it from array(boundModifiers). or push it to array
+  let modifierLength = 0;
+  if (modifierIndex !== -1) {
+    modifierLength = -foundModifiers[modifierIndex].length;
+    foundModifiers.splice(modifierIndex, 1);
+  } else {
+    foundModifiers.unshift(modifiers[0]);
+    modifierLength = modifiers[0].length;
+  }
+
+  // replace text with modified modifiers
+  let prefix = foundModifiers.join("");
+  let suffix = foundModifiers.reverse().join("");
+  cm.replaceRange(suffix, endPoint, rangeEndPoint);
+  cm.replaceRange(prefix, rangeStartPoint, startPoint);
+
+  startPoint.ch += modifierLength;
+  // only change endpoint when selection is in single line
+  if (startPoint.line === endPoint.line) {
+    endPoint.ch += modifierLength;
+  }
   cm.setSelection(startPoint, endPoint);
   cm.focus();
 }
