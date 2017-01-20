@@ -42,8 +42,9 @@
   },
   "dependencies": {
     "electron-editor-context-menu": "^1.1.1",
-    "showdown": "^1.3.0",
     "electron-json-storage": "latest",
-    "parse-filepath": "latest"
+    "electron-localshortcut": "^1.0.0",
+    "parse-filepath": "latest",
+    "showdown": "^1.3.0"
   }
 }
