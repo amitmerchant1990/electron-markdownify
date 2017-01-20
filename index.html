@@ -16,13 +16,18 @@
             <a id="angleToolBar" title="Toolbar" class="fa fa-angle-double-right" onclick="showToolBar();" style="cursor: pointer;text-decoration:none;"></a>
           </span>
           <span>
-            <input type="radio" name="changeTheme" value="light" onclick="changeTheme(this);" title="Light Mode" checked="checked"> <label style="vertical-align: middle;" title="Light Mode"><b>Light</b></label>
-            <input type="radio" name="changeTheme" value="dark" onclick="changeTheme(this);" title="Dark Mode"> <label style="vertical-align: middle;" title="Dark Mode"><b>Dark</b></label>
+            <label style="vertical-align: middle;" title="Light Mode"><input type="radio" name="changeTheme" value="light" onclick="changeTheme(this);" title="Light Mode" checked="checked"> <b>Light</b></label>
+            <label style="vertical-align: middle;" title="Dark Mode"><input type="radio" name="changeTheme" value="dark" onclick="changeTheme(this);" title="Dark Mode"> <b>Dark</b></label>
           </span>
         </div>
         <div class="pref" id="pref">
-          <input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> <label style="vertical-align: middle;"><b>HTML</b></label>
-          <input type="radio" name="showPreference" value="preview" onclick="clkPref(this);" checked="checked"> <label style="vertical-align: middle;"><b>Preview</b></label>
+          <div class="module">
+            <label><input type="checkbox" id="syncScroll" checked> Sync Scrolling</label>
+          </div>
+          <div class="module format">
+            <label><input type="radio" name="showPreference" value="html" onclick="clkPref(this);"> <b>HTML</b></label>
+            <label><input type="radio" name="showPreference" value="preview" onclick="clkPref(this);" checked="checked"> <b>Preview</b></label>
+          </div>
         </div>
       </div>
       <div id="toolbarArea">
@@ -142,5 +147,13 @@
       <script src="js/functions.js"></script>
       <script src="js/ipc_renderer.js"></script>
       <script src="js/emoji.js"></script>
+
+      <script>
+		  document.addEventListener("keydown", function (e) {
+			  if (e.which === 123) {
+				  require('remote').getCurrentWindow().toggleDevTools();
+			  }
+		  });
+      </script>
   </body>
 </html>
