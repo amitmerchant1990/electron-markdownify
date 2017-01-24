@@ -40,14 +40,15 @@ var cm = CodeMirror.fromTextArea(document.getElementById("plainText"), {
   autoCloseBrackets: true
 });
 
-window.onload = function() {
-  var plainText = document.getElementById('plainText');
-  var markdownArea = document.getElementById('markdown');
+$(function() {
+  var plainText = document.getElementById('plainText'),
+    markdownArea = document.getElementById('markdown');
 
   cm.on('change',function(cMirror){
     // get value right from instance
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
+
     //Md -> Preview
     html = marked(markdownText,{gfm: true});
     markdownArea.innerHTML = replaceWithEmojis(html);
@@ -85,4 +86,86 @@ window.onload = function() {
       this.currentFile = data.filename;
     }
   });
-}
+
+
+  /**************************
+   * Synchronized scrolling *
+   **************************/
+
+  var $prev = $('#previewPanel'),
+    $markdown = $('#markdown'),
+    $syncScroll = $('#syncScroll'),
+    canScroll; // Initialized below.
+
+  // Retaining state in boolean since this will be more CPU friendly instead of constantly selecting on each event.
+  function toggleSyncScroll() {
+	  console.log('Toggle scroll synchronization.');
+	  canScroll = $syncScroll.is(':checked');
+
+	  // If scrolling was just enabled, ensure we're back in sync by triggering window resize.
+	  if (canScroll) $(window).trigger('resize');
+  }
+  toggleSyncScroll();
+  $syncScroll.on('change', toggleSyncScroll);
+
+  /**
+   * Scrollable height.
+   */
+
+  function codeScrollable() {
+    var info = cm.getScrollInfo(),
+      fullHeight = info.height,
+      viewHeight = info.clientHeight;
+
+    return fullHeight - viewHeight;
+  }
+
+  function prevScrollable() {
+    var fullHeight = $markdown.height(),
+      viewHeight = $prev.height();
+    return fullHeight - viewHeight;
+  }
+
+  /**
+   * Temporarily swaps out a scroll handler.
+   */
+  function muteScroll(obj, listener) {
+    obj.off('scroll', listener);
+    obj.on('scroll', tempHandler);
+    function tempHandler() {
+      obj.off('scroll', tempHandler);
+      obj.on('scroll', listener);
+    }
+  }
+
+  /**
+   * Scroll Event Listeners
+   */
+  function codeScroll() {
+    var scrollable = codeScrollable();
+    if (scrollable > 0 && canScroll) {
+      var percent = cm.getScrollInfo().top / scrollable;
+
+      // Since we'll be triggering scroll events.
+      console.log('Code scroll: %' + (Math.round(100 * percent)));
+      muteScroll($prev, prevScroll);
+      $prev.scrollTop(percent * prevScrollable());
+    }
+  }
+  cm.on('scroll', codeScroll);
+  $(window).on('resize', codeScroll);
+
+  function prevScroll() {
+      var scrollable = prevScrollable();
+      if (scrollable > 0 && canScroll) {
+        var percent = $(this).scrollTop() / scrollable;
+
+        // Since we'll be triggering scroll events.
+        console.log('Preview scroll: %' + (Math.round(100 * percent)));
+        muteScroll(cm, codeScroll);
+        cm.scrollTo(null, codeScrollable() * percent);
+      }
+  }
+  $prev.on('scroll', prevScroll);
+
+});
