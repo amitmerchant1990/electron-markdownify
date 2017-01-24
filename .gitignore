@@ -8,3 +8,6 @@ node_modules
 
 # Built packages
 dist
+
+# IDE
+.idea/
