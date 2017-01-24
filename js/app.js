@@ -49,8 +49,23 @@ $(function() {
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
 
+    marked.setOptions({
+      highlight: function (code) {
+        return require('highlightjs').highlightAuto(code).value;
+      }
+    });
+
     //Md -> Preview
-    html = marked(markdownText,{gfm: true});
+    html = marked(markdownText,{
+              gfm: true,
+              tables: true,
+              breaks: false,
+              pedantic: false,
+              sanitize: false,
+              smartLists: true,
+              smartypants: false
+            });
+            
     markdownArea.innerHTML = replaceWithEmojis(html);
 
     //Md -> HTML

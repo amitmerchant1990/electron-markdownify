@@ -1,6 +1,6 @@
 {
   "name": "electron-markdownify",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "A minimalist Markdown Editor",
   "main": "main.js",
   "productName": "Markdownify",
@@ -37,13 +37,14 @@
   "devDependencies": {
     "devtron": "^1.1.2",
     "electron-packager": "^7.0.3",
-    "electron-prebuilt": "^0.36.12",
+    "electron": "^1.4.1",
     "gulp": "^3.9.1"
   },
   "dependencies": {
     "electron-editor-context-menu": "^1.1.1",
     "electron-json-storage": "latest",
     "electron-localshortcut": "^1.0.0",
+    "highlightjs": "^9.8.0",
     "parse-filepath": "latest",
     "showdown": "^1.3.0"
   }

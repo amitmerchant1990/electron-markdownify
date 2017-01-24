@@ -1,15 +1,9 @@
 'use strict';
 
-const electron = require('electron');
-// Module to control application life.
-const app = electron.app;
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow;
+const {app, Menu, dialog, shell, BrowserWindow} = require('electron');
 
 const mainPage = 'file://' + __dirname + '/index.html';
-var Menu = require('menu');
-var dialog = require('dialog');
-var shell = require('shell');
+
 const tray = require('./tray');
 const Config = require('./package.json');
 var localShortcut = require('electron-localshortcut');

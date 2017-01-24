@@ -27,6 +27,7 @@
 
 * LivePreview - Make changes, See changes
   - Instantly see what your Markdown documents look like in HTML as you create them.
+* Sync Scrolling
   - While you type, LivePreview will automatically scroll to the current location you're editing.
 * GitHub Flavored Markdown  
 * Syntax highlighting
@@ -66,6 +67,7 @@ This software uses code from several open source packages.
 - [showdown](http://showdownjs.github.io/showdown/)
 - [CodeMirror](http://codemirror.net/)
 - Emojis are taken from [here](https://github.com/arvida/emoji-cheat-sheet.com)
+- [highlight.js](https://highlightjs.org/)
 
 ## Related
 
