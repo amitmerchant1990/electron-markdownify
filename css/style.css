@@ -152,17 +152,22 @@ input[type="radio"]:checked:before {
 }
 
 .preview-dark-mode{
-    background: #151515;
+    background: #272727;
     color: #E0E0E0;
 }
 
 .preview-dark-mode textarea{
-    background: #151515;
+    background: #272727;
     color: #E0E0E0;
 }
 
+.nilMargin{
+  padding-right: 0;
+  padding-left: 0;
+}
+
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
