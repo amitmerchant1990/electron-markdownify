@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="http://electron.atom.io">
-    <img src="https://cdn.rawgit.com/amitmerchant1990/electron-markdownify/742700ed1e810c6fff69f679dd874b1d9779044f/img/electron-badge.svg" alt="Electron">
+    <img src="https://cdn.rawgit.com/amitmerchant1990/electron-markdownify/d0059441c4440c89f9d098b367fd5d987ac044f2/img/electron-badge.svg" alt="Electron">
   </a>
   <a href="https://badge.fury.io/js/electron-markdownify">
     <img src="https://badge.fury.io/js/electron-markdownify.svg"
