@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg width="110" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#000000" id="svg_1" d="m0.000008,-0.099999l109.999998,0l0,20.1l-109.999998,0l0,-20.1z" opacity="0.9" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000"/>
+  <rect stroke="#000000" id="svg_7" height="20.100002" width="39.000015" y="-0.1" x="0" opacity="0.9" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#003f7f"/>
+  <image stroke="null" xlink:href="https://comsysto.files.wordpress.com/2015/09/electorn-logo-2.png" opacity="0.9" id="svg_10" height="18.800007" width="18.999998" y="0.599998" x="9.000007"/>
+  <text font-weight="normal" font-style="normal" stroke="#000000" transform="matrix(0.7907683337216115,0,0,0.6454311034294639,-56.46945698361903,-49.87781535894491) " xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_12" y="100.772256" x="166.051766" opacity="0.95" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#ffffff">Electron</text>
+ </g>
+</svg>
