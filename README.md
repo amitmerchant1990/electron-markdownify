@@ -10,6 +10,9 @@
 <h4 align="center">This is a minimal Markdown Editor desktop app based on <a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
 
 <p align="center">
+  <a href="http://electron.atom.io">
+    <img src="https://cdn.rawgit.com/amitmerchant1990/electron-markdownify/742700ed1e810c6fff69f679dd874b1d9779044f/img/electron-badge.svg" alt="Electron">
+  </a>
   <a href="https://badge.fury.io/js/electron-markdownify">
     <img src="https://badge.fury.io/js/electron-markdownify.svg"
          alt="Gitter">
