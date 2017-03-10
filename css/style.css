@@ -161,13 +161,41 @@ input[type="radio"]:checked:before {
     color: #E0E0E0;
 }
 
-.nilMargin{
+.cmpad{
   padding-right: 0;
   padding-left: 0;
 }
 
+@media print {
+  html, body {
+      height: 99%;
+  }
+
+  #editArea{
+    padding-top: 0 !important;
+  }
+
+  .optContainer, #toolbarArea, #textPanel {
+    display: none;
+  }
+
+  #markdown{
+    height: 100%;
+  }
+
+  #previewPanel{
+     height: auto;
+     overflow: visible;
+  }
+
+  ::-webkit-scrollbar {
+      width: 0; /*new*/
+      display: none;
+  }
+}
+
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 5px; /*new*/
 }
 
 ::-webkit-scrollbar-track {

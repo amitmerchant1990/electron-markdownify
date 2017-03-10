@@ -5,7 +5,7 @@ var insertTexts = {
   horizontalRule: ["", "\n\n-----\n\n"]
 };
 
-function toggleFormat(type) {
+var toggleFormat = (type) => {
   'use strict';
   let modifiers = [];
   if(type == "bold") {
@@ -20,7 +20,7 @@ function toggleFormat(type) {
   })
 }
 
-function _toggleFormat(modifiers) {
+var _toggleFormat = (modifiers) => {
   'use strict';
   if (modifiers.length === 0) {
     return;
@@ -33,7 +33,7 @@ function _toggleFormat(modifiers) {
     bFound = false;
     for (let i = 0, len = allModifiers.length; i < len; i++) {
       let modi = allModifiers[i];
-      if (cm.getSelection().startsWith(modi) && cm.getSelection().endsWith(modi) 
+      if (cm.getSelection().startsWith(modi) && cm.getSelection().endsWith(modi)
         && endPoint.ch - startPoint.ch >= 2 * modi.length) {
         bFound = true;
         startPoint.ch += modi.length;
@@ -104,7 +104,7 @@ function _toggleFormat(modifiers) {
   cm.focus();
 }
 
-function getState(cm, pos) {
+var getState = (cm, pos) => {
   pos = pos || cm.getCursor("start");
   var stat = cm.getTokenAt(pos);
   if(!stat.type) return {};
@@ -145,19 +145,19 @@ function getState(cm, pos) {
   return ret;
 }
 
-function toggleBlockquote() {
+var toggleBlockquote = () => {
   _toggleLine(cm, "quote");
 }
 
-function toggleUnorderedList(editor) {
+var toggleUnorderedList = (editor) => {
   _toggleLine(cm, "unordered-list");
 }
 
-function toggleOrderedList(editor) {
+var toggleOrderedList = (editor) => {
   _toggleLine(cm, "ordered-list");
 }
 
-function _toggleLine(cm, name) {
+var _toggleLine = (cm, name) => {
   if(/editor-preview-active/.test(cm.getWrapperElement().lastChild.className))
   return;
 
@@ -175,7 +175,7 @@ function _toggleLine(cm, name) {
     "ordered-list": "1. "
   };
   for(var i = startPoint.line; i <= endPoint.line; i++) {
-    (function(i) {
+    ((i) => {
       var text = cm.getLine(i);
       if(stat[name]) {
         text = text.replace(repl[name], "$1");
@@ -195,41 +195,41 @@ function _toggleLine(cm, name) {
 }
 
 // function for drawing a link
-function drawLink() {
+var drawLink = () => {
   var stat = getState(cm);
   var url = "http://";
   _replaceSelection(cm, stat.link, insertTexts.link, url);
 }
 
 // function for drawing an image
-function drawImage() {
+var drawImage = () => {
   var stat = getState(cm);
   var url = "http://";
   _replaceSelection(cm, stat.image, insertTexts.image, url);
 }
 
 // function for drawing a image
-function drawTable() {
+var drawTable = () => {
   var stat = getState(cm);
   _replaceSelection(cm, stat.table, insertTexts.table);
 }
 
 // function for drawing a horizontal rule.
-function drawHorizontalRule() {
+var drawHorizontalRule = () => {
   var stat = getState(cm);
   _replaceSelection(cm, stat.image, insertTexts.horizontalRule);
 }
 
 // function for adding heading
-function toggleHeadingSmaller() {
+var toggleHeadingSmaller = () => {
 	_toggleHeading("smaller");
 }
 
-function _toggleHeading(direction, size) {
+var _toggleHeading = (direction, size) => {
   var startPoint = cm.getCursor("start");
   var endPoint = cm.getCursor("end");
   for(var i = startPoint.line; i <= endPoint.line; i++) {
-    (function(i) {
+    ((i) => {
       var text = cm.getLine(i);
       var currHeadingLevel = text.search(/[^#]/);
 
@@ -291,7 +291,7 @@ function _toggleHeading(direction, size) {
   cm.focus();
 }
 
-function _replaceSelection(cm, active, startEnd, url) {
+var _replaceSelection = (cm, active, startEnd, url) => {
   var text;
   var start = startEnd[0];
   var end = startEnd[1];
@@ -321,7 +321,7 @@ function _replaceSelection(cm, active, startEnd, url) {
   cm.focus();
 }
 
-function toggleSidePanel() {
+var toggleSidePanel = () => {
   if(document.getElementById("previewPanel").style.display == "block"){
     document.getElementById("previewPanel").style.display = "none";
     document.getElementById("pref").style.display = "none";

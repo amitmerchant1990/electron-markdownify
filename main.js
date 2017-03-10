@@ -2,6 +2,13 @@
 
 const {app, Menu, dialog, shell, BrowserWindow} = require('electron');
 
+const ipcMain = require('electron').ipcMain;
+
+const ipc = app.ipcMain;
+const fs = require('fs')
+const os = require('os')
+const path = require('path')
+
 const mainPage = 'file://' + __dirname + '/index.html';
 
 const tray = require('./tray');
@@ -13,7 +20,7 @@ var localShortcut = require('electron-localshortcut');
 let mainWindow;
 let isQuitting = false;
 
-function createWindow () {
+var createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 1400, height: 800, icon: __dirname+'/img/favicon.ico'});
 
@@ -24,7 +31,7 @@ function createWindow () {
   //mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function() {
+  mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
@@ -43,7 +50,7 @@ function createWindow () {
   });
 
   //Open anchor links in browser
-  mainWindow.webContents.on('will-navigate', function(e, url) {
+  mainWindow.webContents.on('will-navigate', (e, url) => {
     e.preventDefault();
     shell.openExternal(url);
   });
@@ -53,21 +60,24 @@ function createWindow () {
     {
       label: "&File",
       submenu: [
-        {label: "New", accelerator: "CmdOrCtrl+N", click: function() {
+        {label: "New", accelerator: "CmdOrCtrl+N", click: () => {
           var focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-new');
         }},
-        {label: "Open", accelerator: "CmdOrCtrl+O", click: function() {
+        {label: "Open", accelerator: "CmdOrCtrl+O", click: () => {
           let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-open');
         }},
-        {label: "Save", accelerator: "CmdOrCtrl+S", click: function() {
+        {label: "Save", accelerator: "CmdOrCtrl+S", click: () => {
           let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-save');
         }},
-        {label: "Save As", accelerator: "CmdOrCtrl+Shift+S", click: function() {
+        {label: "Save As", accelerator: "CmdOrCtrl+Shift+S", click: () => {
           var focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-save-as');
+        }},
+        {label: "Save As PDF", accelerator: "CmdOrCtrl+Shift+P", click: () => {
+          focusedWindow.webContents.send('file-pdf');
         }},
         {label: "Quit", accelerator: "Command+Q", click: app.quit}
       ]
@@ -83,11 +93,11 @@ function createWindow () {
         {label: "Paste", accelerator: "CmdOrCtrl+V", role: "paste"},
         {label: "Select All", accelerator: "CmdOrCtrl+A", role: 'selectall'},
         {type: "separator"},
-        {label: "Search", accelerator: "CmdOrCtrl+F", click: function() {
+        {label: "Search", accelerator: "CmdOrCtrl+F", click: () => {
           let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('ctrl+f');
         }},
-        {label: "Replace", accelerator: "CmdOrCtrl+Shift+F", click: function() {
+        {label: "Replace", accelerator: "CmdOrCtrl+Shift+F", click: () => {
           let focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('ctrl+shift+f');
         }}
@@ -96,7 +106,7 @@ function createWindow () {
     {
       label: "&View",
       submenu: [
-        {label: "Toggle Full Screen", accelerator:"F11", click: function(){
+        {label: "Toggle Full Screen", accelerator:"F11", click: () => {
           let focusedWindow = BrowserWindow.getFocusedWindow();
           let isFullScreen = focusedWindow.isFullScreen();
           focusedWindow.setFullScreen(!isFullScreen);
@@ -106,48 +116,63 @@ function createWindow () {
     {
       label: "&Help",
       submenu: [
-        {label: "Documentation", click: function () {
+        {label: "Documentation", click:  () => {
           shell.openExternal(Config.repository.docs);
         }},
-        {label: "Report Issue", click: function () {
+        {label: "Report Issue", click: () => {
           shell.openExternal(Config.bugs.url);
         }},
-        {label: "About Markdownify", click: function () {
+        {label: "About Markdownify", click: () => {
           dialog.showMessageBox({title: "About Markdownify", type:"info", message: "A minimal Markdown Editor desktop app. \nMIT Copyright (c) 2016 Amit Merchant <bullredeyes@gmail.com>", buttons: ["Close"] });
         }}
       ]
     }
   ];
 
+  ipcMain.on('print-to-pdf', (event, filePath) => {
+
+    const win = BrowserWindow.fromWebContents(event.sender)
+    // Use default printing options
+    win.webContents.printToPDF({pageSize: 'A4'}, (error, data) => {
+      if (error) throw error
+      fs.writeFile(filePath, data, (error) => {
+        if (error) {
+          throw error
+        }
+      })
+    })
+
+  });
+
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
   // Registering shortcuts for formatting markdown
   var focusedWindow = BrowserWindow.getFocusedWindow();
-  localShortcut.register('CmdOrCtrl+b', function() {
+  localShortcut.register('CmdOrCtrl+b', () => {
       focusedWindow.webContents.send('ctrl+b');
   });
 
-  localShortcut.register('CmdOrCtrl+i', function() {
+  localShortcut.register('CmdOrCtrl+i', () => {
       focusedWindow.webContents.send('ctrl+i');
   });
 
-  localShortcut.register('CmdOrCtrl+/', function() {
+  localShortcut.register('CmdOrCtrl+/', () => {
       focusedWindow.webContents.send('ctrl+/');
   });
 
-  localShortcut.register('CmdOrCtrl+l', function() {
+  localShortcut.register('CmdOrCtrl+l', () => {
       focusedWindow.webContents.send('ctrl+l');
   });
 
-  localShortcut.register('CmdOrCtrl+h', function() {
+  localShortcut.register('CmdOrCtrl+h', () => {
       focusedWindow.webContents.send('ctrl+h');
   });
 
-  localShortcut.register('CmdOrCtrl+Alt+i', function() {
+  localShortcut.register('CmdOrCtrl+Alt+i', () => {
       focusedWindow.webContents.send('ctrl+alt+i');
   });
 
-  localShortcut.register('CmdOrCtrl+Shift+t', function() {
+  localShortcut.register('CmdOrCtrl+Shift+t', () => {
       focusedWindow.webContents.send('ctrl+shift+t');
   });
 
@@ -159,7 +184,7 @@ function createWindow () {
 app.on('ready', createWindow);
 
 // Quit when all windows are closed.
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
@@ -167,7 +192,7 @@ app.on('window-all-closed', function () {
   }
 });
 
-app.on('activate', function () {
+app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
@@ -175,6 +200,6 @@ app.on('activate', function () {
   }
 });
 
-app.on('before-quit', function() {
+app.on('before-quit', () => {
   isQuitting = true;
 });

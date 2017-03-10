@@ -18,7 +18,7 @@ var isFileLoadedInitially = false;
 var buildEditorContextMenu = remote.require('electron-editor-context-menu');
 var currentValue = 0, currentValueTheme = 0;
 
-window.addEventListener('contextmenu', function(e) {
+window.addEventListener('contextmenu', e => {
   // Only show the context menu in text editors.
   if (!e.target.closest('textarea, input, [contenteditable="true"],section')) return;
 
@@ -27,7 +27,7 @@ window.addEventListener('contextmenu', function(e) {
   // The 'contextmenu' event is emitted after 'selectionchange' has fired but possibly before the
   // visible selection has changed. Try to wait to show the menu until after that, otherwise the
   // visible selection will update after the menu dismisses and look weird.
-  setTimeout(function() {
+  setTimeout(() => {
     menu.popup(remote.getCurrentWindow());
   }, 30);
 });
@@ -40,17 +40,17 @@ var cm = CodeMirror.fromTextArea(document.getElementById("plainText"), {
   autoCloseBrackets: true
 });
 
-$(function() {
+$(() => {
   var plainText = document.getElementById('plainText'),
     markdownArea = document.getElementById('markdown');
 
-  cm.on('change',function(cMirror){
+  cm.on('change', (cMirror) => {
     // get value right from instance
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
 
     marked.setOptions({
-      highlight: function (code) {
+      highlight: (code) => {
         return require('highlightjs').highlightAuto(code).value;
       }
     });
@@ -65,7 +65,7 @@ $(function() {
               smartLists: true,
               smartypants: false
             });
-            
+
     markdownArea.innerHTML = replaceWithEmojis(html);
 
     //Md -> HTML
@@ -87,11 +87,11 @@ $(function() {
   });
 
   // Get the most recently saved file
-  storage.get('markdown-savefile', function(error, data) {
+  storage.get('markdown-savefile', (error, data) => {
     if (error) throw error;
 
     if ('filename' in data) {
-      fs.readFile(data.filename, 'utf-8', function (err, data) {
+      fs.readFile(data.filename, 'utf-8', (err, data) => {
          if(err){
              alert("An error ocurred while opening the file "+ err.message)
          }
@@ -113,7 +113,7 @@ $(function() {
     canScroll; // Initialized below.
 
   // Retaining state in boolean since this will be more CPU friendly instead of constantly selecting on each event.
-  function toggleSyncScroll() {
+  var toggleSyncScroll = () => {
 	  console.log('Toggle scroll synchronization.');
 	  canScroll = $syncScroll.is(':checked');
 
@@ -127,7 +127,7 @@ $(function() {
    * Scrollable height.
    */
 
-  function codeScrollable() {
+  var codeScrollable = () => {
     var info = cm.getScrollInfo(),
       fullHeight = info.height,
       viewHeight = info.clientHeight;
@@ -135,7 +135,7 @@ $(function() {
     return fullHeight - viewHeight;
   }
 
-  function prevScrollable() {
+  var prevScrollable = () => {
     var fullHeight = $markdown.height(),
       viewHeight = $prev.height();
     return fullHeight - viewHeight;
@@ -144,10 +144,11 @@ $(function() {
   /**
    * Temporarily swaps out a scroll handler.
    */
-  function muteScroll(obj, listener) {
+  var muteScroll = (obj, listener) => {
     obj.off('scroll', listener);
     obj.on('scroll', tempHandler);
-    function tempHandler() {
+
+    var tempHandler = () => {
       obj.off('scroll', tempHandler);
       obj.on('scroll', listener);
     }
@@ -156,7 +157,7 @@ $(function() {
   /**
    * Scroll Event Listeners
    */
-  function codeScroll() {
+  var codeScroll = () => {
     var scrollable = codeScrollable();
     if (scrollable > 0 && canScroll) {
       var percent = cm.getScrollInfo().top / scrollable;
@@ -170,7 +171,7 @@ $(function() {
   cm.on('scroll', codeScroll);
   $(window).on('resize', codeScroll);
 
-  function prevScroll() {
+  var prevScroll = () => {
       var scrollable = prevScrollable();
       if (scrollable > 0 && canScroll) {
         var percent = $(this).scrollTop() / scrollable;

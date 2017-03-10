@@ -1,4 +1,4 @@
-var clkPref = function (opt) {
+var clkPref = (opt) => {
   currentValue = opt.value;
   if ( currentValue=='preview' ) {
     document.getElementById("htmlPreview").style.display = "none";
@@ -9,7 +9,7 @@ var clkPref = function (opt) {
   }
 }
 
-var changeTheme = function (opt) {
+var changeTheme = (opt) => {
   currentValueTheme = opt.value;
   if ( currentValueTheme=='light' ) {
     cm.setOption("theme", "default");
@@ -20,7 +20,7 @@ var changeTheme = function (opt) {
   }
 }
 
-var showToolBar = function () {
+var showToolBar = () => {
   if(document.getElementById("toolbarArea").style.display == "block"){
     document.getElementById("angleToolBar").className = "";
     document.getElementById("angleToolBar").className = "fa fa-angle-double-right";
@@ -35,20 +35,20 @@ var showToolBar = function () {
 }
 
 // Generations and clean state of CodeMirror
-var getGeneration = function () {
+var getGeneration = () => {
   return this.cm.doc.changeGeneration();
 }
 
-var setClean = function () {
+var setClean = () => {
   this.latestGeneration = this.getGeneration();
 }
 
-var isClean = function () {
+var isClean = () => {
   return this.cm.doc.isClean(this.latestGeneration);
 }
 
 // Update window title on various events
-var updateWindowTitle = function (path) {
+var updateWindowTitle = (path) => {
   var appName = "Markdownify",
       isClean = this.isClean(),
       saveSymbol = "*",
