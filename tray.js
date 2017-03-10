@@ -4,14 +4,14 @@ const electron = require('electron');
 const app = electron.app;
 let tray = null;
 
-exports.create = function(mainWindow) {
+exports.create = (mainWindow) => {
   if (process.platform === 'darwin' || tray) {
     return;
   }
 
   const iconPath = path.join(__dirname, 'img/IconTray.png');
 
-  const toggleWin = function(){
+  const toggleWin = () => {
     if (mainWindow.isVisible()) {
       mainWindow.hide();
     } else {

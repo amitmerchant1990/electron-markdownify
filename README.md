@@ -36,6 +36,7 @@
 * Syntax highlighting
 * Dark/Light mode
 * Toolbar for basic Markdown formatting
+* Save the Markdown preview as PDF
 * Emoji support in preview :tada:
 * App will keep alive in tray for quick usage
 * Full screen mode
