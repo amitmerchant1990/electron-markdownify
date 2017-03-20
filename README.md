@@ -1,28 +1,18 @@
+<img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.png" align="left" width="200"/>
+<img align="left" width="0" height="192px" hspace="10"/>
 
-<h1 align="center">
-  <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.png" alt="Markdownify" width="200"></a>
-  <br>
-  Electron Markdownify
-  <br>
-</h1>
+# Electron Markdownify
+> This is a minimal Markdown Editor desktop app based on [Electron](http://electron.atom.io).
 
-<h4 align="center">This is a minimal Markdown Editor desktop app based on <a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
+[![License](https://cdn.rawgit.com/amitmerchant1990/electron-markdownify/d0059441c4440c89f9d098b367fd5d987ac044f2/img/electron-badge.svg)](http://electron.atom.io) [![XO code style](https://badge.fury.io/js/electron-markdownify.svg)](https://badge.fury.io/js/electron-markdownify) [![Travis](https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg)](https://gitter.im/amitmerchant1990/electron-markdownify) [![Release](https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg)](https://saythanks.io/to/amitmerchant1990)
 
-<p align="center">
-  <a href="http://electron.atom.io">
-    <img src="https://cdn.rawgit.com/amitmerchant1990/electron-markdownify/d0059441c4440c89f9d098b367fd5d987ac044f2/img/electron-badge.svg" alt="Electron">
-  </a>
-  <a href="https://badge.fury.io/js/electron-markdownify">
-    <img src="https://badge.fury.io/js/electron-markdownify.svg"
-         alt="Gitter">
-  </a>
-  <a href="https://gitter.im/amitmerchant1990/electron-markdownify"><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
-  <a href="https://saythanks.io/to/amitmerchant1990">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
-  </a>
-</p>
-<br>
+</br>
+</br>
+</br>
+</br>
+
+
+## Screenshot
 
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
 
