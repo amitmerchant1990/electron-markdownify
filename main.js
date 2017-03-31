@@ -147,33 +147,32 @@ var createWindow = () => {
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
   // Registering shortcuts for formatting markdown
-  var focusedWindow = BrowserWindow.getFocusedWindow();
-  localShortcut.register('CmdOrCtrl+b', () => {
-      focusedWindow.webContents.send('ctrl+b');
+  localShortcut.register(mainWindow, 'Ctrl+B', () => {
+      mainWindow.webContents.send('ctrl+b');
   });
 
-  localShortcut.register('CmdOrCtrl+i', () => {
-      focusedWindow.webContents.send('ctrl+i');
+  localShortcut.register(mainWindow, 'Ctrl+i', () => {
+      mainWindow.webContents.send('ctrl+i');
   });
 
-  localShortcut.register('CmdOrCtrl+/', () => {
-      focusedWindow.webContents.send('ctrl+/');
+  localShortcut.register(mainWindow, 'Ctrl+/', () => {
+      mainWindow.webContents.send('ctrl+/');
   });
 
-  localShortcut.register('CmdOrCtrl+l', () => {
-      focusedWindow.webContents.send('ctrl+l');
+  localShortcut.register(mainWindow, 'Ctrl+l', () => {
+      mainWindow.webContents.send('ctrl+l');
   });
 
-  localShortcut.register('CmdOrCtrl+h', () => {
-      focusedWindow.webContents.send('ctrl+h');
+  localShortcut.register(mainWindow, 'Ctrl+h', () => {
+      mainWindow.webContents.send('ctrl+h');
   });
 
-  localShortcut.register('CmdOrCtrl+Alt+i', () => {
-      focusedWindow.webContents.send('ctrl+alt+i');
+  localShortcut.register(mainWindow, 'Ctrl+Alt+i', () => {
+      mainWindow.webContents.send('ctrl+alt+i');
   });
 
-  localShortcut.register('CmdOrCtrl+Shift+t', () => {
-      focusedWindow.webContents.send('ctrl+shift+t');
+  localShortcut.register(mainWindow, 'Ctrl+Shift+t', () => {
+      mainWindow.webContents.send('ctrl+shift+t');
   });
 
   tray.create(mainWindow);
