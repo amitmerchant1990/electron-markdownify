@@ -80,6 +80,11 @@ This software uses code from several open source packages.
 
 [markdownify-web](https://github.com/amitmerchant1990/markdownify-web) - Web version of Markdownify
 
+## You may alos like...
+
+- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
+- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
+
 #### License
 
 MIT
