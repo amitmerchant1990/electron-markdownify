@@ -14,9 +14,11 @@ var changeTheme = (opt) => {
   if ( currentValueTheme=='light' ) {
     cm.setOption("theme", "default");
     document.getElementById("previewPanel").className = "col-md-6 full-height";
+    config.set('darkMode', false);
   } else if ( currentValueTheme=='dark' ) {
     cm.setOption("theme", "base16-dark");
     document.getElementById("previewPanel").className = "col-md-6 full-height preview-dark-mode";
+    config.set('darkMode', true);
   }
 }
 

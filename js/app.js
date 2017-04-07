@@ -14,6 +14,8 @@ var parsePath = require("parse-filepath");
 var currentFile = '';
 var isFileLoadedInitially = false;
 
+const config = require('./config');
+
 // `remote.require` since `Menu` is a main-process module.
 var buildEditorContextMenu = remote.require('electron-editor-context-menu');
 var currentValue = 0, currentValueTheme = 0;
@@ -184,4 +186,11 @@ $(() => {
   }
   $prev.on('scroll', prevScroll);
 
+  if (!config.get('darkMode')) {
+    cm.setOption("theme", "default");
+    document.getElementById("previewPanel").className = "col-md-6 full-height";
+  } else {
+    cm.setOption("theme", "base16-dark");
+    document.getElementById("previewPanel").className = "col-md-6 full-height preview-dark-mode";
+  }
 });

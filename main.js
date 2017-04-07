@@ -12,7 +12,8 @@ const path = require('path')
 const mainPage = 'file://' + __dirname + '/index.html';
 
 const tray = require('./tray');
-const Config = require('./package.json');
+const appDetails = require('./package.json');
+
 var localShortcut = require('electron-localshortcut');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -22,7 +23,11 @@ let isQuitting = false;
 
 var createWindow = () => {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1400, height: 800, icon: __dirname+'/img/favicon.ico'});
+  mainWindow = new BrowserWindow({
+    width: 1400,
+    height: 800,
+    icon: __dirname+'/img/favicon.ico'
+  });
 
   // and load the index.html of the app.
   mainWindow.loadURL(mainPage);
@@ -117,10 +122,10 @@ var createWindow = () => {
       label: "&Help",
       submenu: [
         {label: "Documentation", click:  () => {
-          shell.openExternal(Config.repository.docs);
+          shell.openExternal(appDetails.repository.docs);
         }},
         {label: "Report Issue", click: () => {
-          shell.openExternal(Config.bugs.url);
+          shell.openExternal(appDetails.bugs.url);
         }},
         {label: "About Markdownify", click: () => {
           dialog.showMessageBox({title: "About Markdownify", type:"info", message: "A minimal Markdown Editor desktop app. \nMIT Copyright (c) 2016 Amit Merchant <bullredeyes@gmail.com>", buttons: ["Close"] });
