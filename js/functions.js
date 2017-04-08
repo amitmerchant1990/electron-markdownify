@@ -1,23 +1,29 @@
 var clkPref = (opt) => {
   currentValue = opt.value;
-  if ( currentValue=='preview' ) {
+  if ( currentValue=='preview' || opt===false ) {
     document.getElementById("htmlPreview").style.display = "none";
     document.getElementById("markdown").style.display = "block";
-  } else if ( currentValue=='html' ) {
+    document.getElementById('previewRadio').checked = true;
+    config.set('isHtml', false);
+  } else {
     document.getElementById("markdown").style.display = "none";
     document.getElementById("htmlPreview").style.display = "block";
+    document.getElementById('htmlRadio').checked = true;
+    config.set('isHtml', true);
   }
 }
 
 var changeTheme = (opt) => {
   currentValueTheme = opt.value;
-  if ( currentValueTheme=='light' ) {
+  if ( currentValueTheme=='light' || opt===false) {
     cm.setOption("theme", "default");
     document.getElementById("previewPanel").className = "col-md-6 full-height";
+    document.getElementById('lightThemeRadio').checked = true;
     config.set('darkMode', false);
-  } else if ( currentValueTheme=='dark' ) {
+  } else {
     cm.setOption("theme", "base16-dark");
     document.getElementById("previewPanel").className = "col-md-6 full-height preview-dark-mode";
+    document.getElementById('darkThemeRadio').checked = true;
     config.set('darkMode', true);
   }
 }

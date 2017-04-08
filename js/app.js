@@ -119,12 +119,19 @@ $(() => {
 	  console.log('Toggle scroll synchronization.');
 	  canScroll = $syncScroll.is(':checked');
 
+    config.set('isSyncScroll', canScroll);
 	  // If scrolling was just enabled, ensure we're back in sync by triggering window resize.
 	  if (canScroll) $(window).trigger('resize');
   }
-  toggleSyncScroll();
+  //toggleSyncScroll();
   $syncScroll.on('change', toggleSyncScroll);
 
+  const isSyncScroll = config.get('isSyncScroll');
+  if(isSyncScroll===true){
+    $syncScroll.attr('checked', true);
+  }else{
+    $syncScroll.attr('checked', false);
+  }
   /**
    * Scrollable height.
    */
@@ -186,11 +193,9 @@ $(() => {
   }
   $prev.on('scroll', prevScroll);
 
-  if (!config.get('darkMode')) {
-    cm.setOption("theme", "default");
-    document.getElementById("previewPanel").className = "col-md-6 full-height";
-  } else {
-    cm.setOption("theme", "base16-dark");
-    document.getElementById("previewPanel").className = "col-md-6 full-height preview-dark-mode";
-  }
+  const isDarkMode = config.get('darkMode');
+  changeTheme(isDarkMode);
+
+  const isHtml = config.get('isHtml');
+  clkPref(isHtml);
 });
