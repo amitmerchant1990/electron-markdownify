@@ -82,6 +82,7 @@ var createWindow = () => {
           focusedWindow.webContents.send('file-save-as');
         }},
         {label: "Save As PDF", accelerator: "CmdOrCtrl+Shift+P", click: () => {
+          var focusedWindow = BrowserWindow.getFocusedWindow();
           focusedWindow.webContents.send('file-pdf');
         }},
         {label: "Quit", accelerator: "Command+Q", click: app.quit}

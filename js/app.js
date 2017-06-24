@@ -35,7 +35,7 @@ window.addEventListener('contextmenu', e => {
 });
 
 var cm = CodeMirror.fromTextArea(document.getElementById("plainText"), {
-  lineNumbers: true,
+  lineNumbers: false,
   mode: "markdown",
   viewportMargin: 100000000000,
   lineWrapping : true,
