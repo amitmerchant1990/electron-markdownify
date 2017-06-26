@@ -13,6 +13,11 @@ pre {
   white-space:nowrap;
 }
 
+.h3, h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .col-md-4 p{
   color: #555;
 }
