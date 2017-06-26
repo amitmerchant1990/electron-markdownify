@@ -26,26 +26,6 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand pull-right" href="https://twitter.com/amit_merchant">Twitter</a>
-          <a class="navbar-brand" href="#">Markdownify</a>
-        </div>
-        <!--<div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container text-center">
@@ -57,12 +37,12 @@
           </p>
         </div>
         <div>
-          <a href="https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0" class="btn btn-primary btn-lg">Download</a>
+          <a href="https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0" class="btn btn-success btn-lg">Download</a>
           <a href="https://github.com/amitmerchant1990/electron-markdownify/" class="btn btn-danger btn-lg">GitHub</a>
         </div>
       </div>
       <div class="text-center">
-        <img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif" class="img-responsive custom-image">
+        <img src="img/markdownify-macos.png" class="img-responsive custom-image">
       </div>
     </div>
 
@@ -111,6 +91,8 @@
             <li>Save the Markdown preview as PDF</li>
             <li>App will keep alive in tray for quick usage</li>
             <li>Full screen mode</li>
+            <li>Supports multiple cursors</li>
+            <li>Save the Markdown preview as PDF</li>
             <ul>
               <li>Write distraction free.</li>
             </ul>
@@ -131,14 +113,22 @@
             <h2 class="key_features">Develop</h2>
           </div>
           <div>
-              <p>Install it using : <code>npm install electron-markdownify</code></p>
-              <p>And then run:</p>
+              <p>To clone and run this application, you'll need <a href="https://git-scm.com/">Git</a> and <a href="https://nodejs.org/en/download/">Node.js</a> (which comes with <a href="http://npmjs.com/">npm</a>) installed on your computer. From your command line:</p>
           </div>
           <div>
             <pre>
               <code class="bash">
-$> cd PATH-TO-MARKDOWNIFY-DESKTOP-APP
-$> npm install && npm start
+# Clone this repository
+$ git clone https://github.com/amitmerchant1990/electron-markdownify
+
+# Go into the repository
+$ cd electron-markdownify
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start
               </code>
             </pre>
           </div>

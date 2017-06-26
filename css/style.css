@@ -1,5 +1,5 @@
 h1{
-  text-shadow: #525252 0px 0px 20px;
+  /*text-shadow: #525252 0px 0px 20px;*/
   font-weight: bold;
 }
 
@@ -31,7 +31,7 @@ pre {
 }
 
 .tagline{
-  text-shadow: #525252 0px 0px 20px;
+  /*text-shadow: #525252 0px 0px 20px;*/
 }
 
 .center{
@@ -51,14 +51,14 @@ pre {
 }
 
 .logo-image{
-  width: 150px;
+  width: 70px;
   height: auto;
   display: initial;
 }
 
 .jumbotron {
    padding-top: 0;
-   background-color: #4CAF50;
+   background-color: #3F51B5;
    color: #ffffff;
 }
 
