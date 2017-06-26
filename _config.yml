@@ -1,8 +1,0 @@
-title: Electron Markdownify
-description: A minimal Markdown editor based on Electron
-google_analytics: 
-show_downloads: true
-theme: jekyll-theme-cayman
-
-gems:
-  - jekyll-mentions
