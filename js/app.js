@@ -11,6 +11,7 @@ var fs = remote.require('fs');
 const storage = require('electron-json-storage');
 var console = require('console');
 var parsePath = require("parse-filepath");
+var katex = require('parse-katex');
 var currentFile = '';
 var isFileLoadedInitially = false;
 
@@ -50,6 +51,7 @@ $(() => {
     // get value right from instance
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
+    latexText = katex.renderLaTeX(markdownText);
 
     marked.setOptions({
       highlight: (code) => {
@@ -58,7 +60,7 @@ $(() => {
     });
 
     //Md -> Preview
-    html = marked(markdownText,{
+    html = marked(latexText,{
               gfm: true,
               tables: true,
               breaks: false,

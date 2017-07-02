@@ -145,6 +145,10 @@ var getState = (cm, pos) => {
   return ret;
 }
 
+function toggleLatex(editor) {
+   _toggleLine(cm, "latex");
+}
+
 var toggleBlockquote = () => {
   _toggleLine(cm, "quote");
 }
@@ -169,10 +173,17 @@ var _toggleLine = (cm, name) => {
     "unordered-list": /^(\s*)(\*|\-|\+)\s+/,
     "ordered-list": /^(\s*)\d+\.\s+/
   };
-  var map = {
+  var prefix = {
     "quote": "> ",
     "unordered-list": "* ",
-    "ordered-list": "1. "
+    "ordered-list": "1. ",
+    "latex": "$"
+  };
+  var postfix = {
+    "quote": "",
+    "unordered-list": "",
+    "ordered-list": "",
+    "latex": "$"
   };
   for(var i = startPoint.line; i <= endPoint.line; i++) {
     ((i) => {
@@ -180,7 +191,7 @@ var _toggleLine = (cm, name) => {
       if(stat[name]) {
         text = text.replace(repl[name], "$1");
       } else {
-        text = map[name] + text;
+        text = prefix[name] + text + postfix[name];
       }
       cm.replaceRange(text, {
         line: i,
