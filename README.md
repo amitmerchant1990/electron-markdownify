@@ -34,7 +34,7 @@
   - While you type, LivePreview will automatically scroll to the current location you're editing.
 * GitHub Flavored Markdown  
 * Syntax highlighting
-* KaTeX Support
+* [KaTeX](https://khan.github.io/KaTeX/) Support
 * Dark/Light mode
 * Toolbar for basic Markdown formatting
 * Supports multiple cursors
