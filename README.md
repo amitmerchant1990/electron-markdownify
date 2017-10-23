@@ -24,6 +24,10 @@
 </p>
 <br>
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/DBgqdJGmRkXcTBUqTjHusmuF/amitmerchant1990/electron-markdownify'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/DBgqdJGmRkXcTBUqTjHusmuF/amitmerchant1990/electron-markdownify.svg' />
+</a>
+
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
 
 ## Key Features
@@ -102,6 +106,3 @@ MIT
 > GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
 > Twitter [@amit_merchant](https://twitter.com/amit_merchant)
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/DBgqdJGmRkXcTBUqTjHusmuF/amitmerchant1990/electron-markdownify'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/DBgqdJGmRkXcTBUqTjHusmuF/amitmerchant1990/electron-markdownify.svg' />
-</a>
