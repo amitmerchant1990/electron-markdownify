@@ -63,7 +63,7 @@ pre {
 .jumbotron {
    padding-top: 0;
    color: #ffffff;
-   background-image: url(img/aurora-1.jpg); 
+   background-image: url(../img/aurora-1.jpg); 
    background-size: cover; 
 }
 
