@@ -65,72 +65,145 @@ var createWindow = () => {
     {
       label: "&File",
       submenu: [
-        {label: "New", accelerator: "CmdOrCtrl+N", click: () => {
-          var focusedWindow = BrowserWindow.getFocusedWindow();
-          focusedWindow.webContents.send('file-new');
-        }},
-        {label: "Open", accelerator: "CmdOrCtrl+O", click: () => {
-          let focusedWindow = BrowserWindow.getFocusedWindow();
-          focusedWindow.webContents.send('file-open');
-        }},
-        {label: "Save", accelerator: "CmdOrCtrl+S", click: () => {
-          let focusedWindow = BrowserWindow.getFocusedWindow();
-          focusedWindow.webContents.send('file-save');
-        }},
-        {label: "Save As", accelerator: "CmdOrCtrl+Shift+S", click: () => {
-          var focusedWindow = BrowserWindow.getFocusedWindow();
-          focusedWindow.webContents.send('file-save-as');
-        }},
-        {label: "Save As PDF", accelerator: "CmdOrCtrl+Shift+P", click: () => {
-          var focusedWindow = BrowserWindow.getFocusedWindow();
-          focusedWindow.webContents.send('file-pdf');
-        }},
-        {label: "Quit", accelerator: "Command+Q", click: app.quit}
+        {
+          label: "New", 
+          accelerator: "CmdOrCtrl+N", 
+          click: () => {
+            var focusedWindow = BrowserWindow.getFocusedWindow();
+            focusedWindow.webContents.send('file-new');
+          }
+        },
+        {
+          label: "Open", 
+          accelerator: "CmdOrCtrl+O", 
+          click: () => {
+            let focusedWindow = BrowserWindow.getFocusedWindow();
+            focusedWindow.webContents.send('file-open');
+          }
+        },
+        {
+          label: "Save", 
+          accelerator: "CmdOrCtrl+S", 
+          click: () => {
+            let focusedWindow = BrowserWindow.getFocusedWindow();
+            focusedWindow.webContents.send('file-save');
+          }
+        },
+        {
+          label: "Save As", 
+          accelerator: "CmdOrCtrl+Shift+S", 
+          click: () => {
+            var focusedWindow = BrowserWindow.getFocusedWindow();
+            focusedWindow.webContents.send('file-save-as');
+          }
+        },
+        {
+          label: "Save As PDF", 
+          accelerator: "CmdOrCtrl+Shift+P", 
+          click: () => {
+            var focusedWindow = BrowserWindow.getFocusedWindow();
+            focusedWindow.webContents.send('file-pdf');
+          }
+        },
+        {
+          label: "Quit", 
+          accelerator: "Command+Q", 
+          click: app.quit
+        }
       ]
     },
     {
       label: "&Edit",
       submenu: [
-        {label: "Undo", accelerator: "CmdOrCtrl+Z", role: "undo"},
-        {label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", role: "redo"},
-        {type: "separator"},
-        {label: "Cut", accelerator: "CmdOrCtrl+X", role: "cut"},
-        {label: "Copy", accelerator: "CmdOrCtrl+C", role: "copy"},
-        {label: "Paste", accelerator: "CmdOrCtrl+V", role: "paste"},
-        {label: "Select All", accelerator: "CmdOrCtrl+A", role: 'selectall'},
-        {type: "separator"},
-        {label: "Search", accelerator: "CmdOrCtrl+F", click: () => {
-          let focusedWindow = BrowserWindow.getFocusedWindow();
-          focusedWindow.webContents.send('ctrl+f');
-        }},
-        {label: "Replace", accelerator: "CmdOrCtrl+Shift+F", click: () => {
-          let focusedWindow = BrowserWindow.getFocusedWindow();
-          focusedWindow.webContents.send('ctrl+shift+f');
-        }}
+        {
+          label: "Undo", 
+          accelerator: "CmdOrCtrl+Z", 
+          role: "undo"
+        },
+        {
+          label: "Redo", 
+          accelerator: "Shift+CmdOrCtrl+Z", 
+          role: "redo"
+        },
+        {
+          type: "separator"
+        },
+        {
+          label: "Cut", 
+          accelerator: "CmdOrCtrl+X", 
+          role: "cut"
+        },
+        {
+          label: "Copy", 
+          accelerator: "CmdOrCtrl+C", 
+          role: "copy"
+        },
+        {
+          label: "Paste", 
+          accelerator: "CmdOrCtrl+V", 
+          role: "paste"
+        },
+        {
+          label: "Select All", 
+          accelerator: "CmdOrCtrl+A", 
+          role: 'selectall'
+        },
+        {
+          type: "separator"
+        },
+        {
+          label: "Search", 
+          accelerator: "CmdOrCtrl+F", 
+          click: () => {
+            let focusedWindow = BrowserWindow.getFocusedWindow();
+            focusedWindow.webContents.send('ctrl+f');
+          }
+        },
+        {
+          label: "Replace", 
+          accelerator: "CmdOrCtrl+Shift+F", 
+          click: () => {
+            let focusedWindow = BrowserWindow.getFocusedWindow();
+            focusedWindow.webContents.send('ctrl+shift+f');
+          }
+        }
       ]
     },
     {
       label: "&View",
       submenu: [
-        {label: "Toggle Full Screen", accelerator:"F11", click: () => {
-          let focusedWindow = BrowserWindow.getFocusedWindow();
-          let isFullScreen = focusedWindow.isFullScreen();
-          focusedWindow.setFullScreen(!isFullScreen);
-        }}
+        {
+          label: "Toggle Full Screen", 
+          accelerator:"F11", 
+          click: () => {
+            let focusedWindow = BrowserWindow.getFocusedWindow();
+            let isFullScreen = focusedWindow.isFullScreen();
+            focusedWindow.setFullScreen(!isFullScreen);
+          }
+        }
       ]
     },
     {
       label: "&Help",
       submenu: [
-        {label: "Documentation", click:  () => {
-          shell.openExternal(appDetails.repository.docs);
-        }},
-        {label: "Report Issue", click: () => {
-          shell.openExternal(appDetails.bugs.url);
-        }},
-        {label: "About Markdownify", click: () => {
-          dialog.showMessageBox({title: "About Markdownify", type:"info", message: "A minimal Markdown Editor desktop app. \nMIT Copyright (c) 2016 Amit Merchant <bullredeyes@gmail.com>", buttons: ["Close"] });
-        }}
+        {
+          label: "Documentation", 
+          click:  () => {
+            shell.openExternal(appDetails.repository.docs);
+          }
+        },
+        {
+          label: "Report Issue", 
+          click: () => {
+            shell.openExternal(appDetails.bugs.url);
+          }
+        },
+        {
+          label: "About Markdownify", 
+          click: () => {
+            dialog.showMessageBox({title: "About Markdownify", type:"info", message: "A minimal Markdown Editor desktop app. \nMIT Copyright (c) 2016 Amit Merchant <bullredeyes@gmail.com>", buttons: ["Close"] });
+          }
+        }
       ]
     }
   ];
