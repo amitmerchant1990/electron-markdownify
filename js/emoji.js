@@ -883,7 +883,7 @@ const EMOJI = [
     'zzz',
 ];
 
-const REGEX_EMOJI = /:(\w+):/g;
+const REGEX_EMOJI = /\\`|`(?:\\`|[^`])*`|:(\w+):/g;
 
 this.replacer = function(match, name){
   if (EMOJI.indexOf(name) > -1) {
