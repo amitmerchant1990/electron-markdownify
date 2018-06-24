@@ -25,10 +25,16 @@ pre {
 
 .credits p{
   color: #555;
+  font-size: 16px;
+}
+
+.develop p{
+  font-size: 16px;
 }
 
 .row li{
   color: #555;
+  font-size: 16px;
 }
 
 .key_features{
@@ -40,7 +46,7 @@ pre {
 }
 
 .center{
-    width:300px;
+    width:340px;
     margin:0 auto;
     text-align:left;
 }
