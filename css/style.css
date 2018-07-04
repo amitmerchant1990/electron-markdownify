@@ -95,6 +95,10 @@ pre {
   color: white;
 }
 
+.tile h3{
+  font-weight: bold;
+}
+
 .outer-tile{
   border-radius: 3px;
   margin: 6px;
