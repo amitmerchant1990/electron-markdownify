@@ -86,6 +86,21 @@ pre {
     margin-bottom: 0;
 }
 
+.tile{
+  padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+  color: white;
+}
+
+.tile p{
+  color: white;
+}
+
+.outer-tile{
+  background-color: #9C27B0;
+  border-radius: 2px;
+  margin: 6px;
+}
+
 .navbar-inverse {
     background-color: #4CAF50;
     border-color: #4CAF50;
