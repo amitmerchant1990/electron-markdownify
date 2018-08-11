@@ -142,7 +142,7 @@ pre {
   width: 100%;
 }
 
-#codefund_ad a {
+#codefund_ad .cf-text {
   color: #dbdbdb !important;
 }
 
