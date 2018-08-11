@@ -143,15 +143,15 @@ pre {
 }
 
 #codefund_ad a {
-  color: #dbdbdb;
+  color: #dbdbdb !important;
 }
 
 .cf-header {
-    color: #babdc1;
+    color: #babdc1 !important;
 }
 
 .cf-powered-by {
-    color: #babdc1;
+    color: #babdc1 !important;
 }
 
 @media (min-width: 992px){
