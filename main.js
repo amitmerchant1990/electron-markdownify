@@ -26,7 +26,7 @@ var createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 1400,
     height: 800,
-    icon: __dirname+'/img/favicon.ico'
+    icon: __dirname+'/app/img/favicon.ico'
   });
 
   // and load the index.html of the app.

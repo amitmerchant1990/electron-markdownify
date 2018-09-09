@@ -887,7 +887,7 @@ const REGEX_EMOJI = /:(\w+):/g;
 
 this.replacer = function(match, name){
   if (EMOJI.indexOf(name) > -1) {
-    return '<img src="./img/emoji/'+name+'.png" title="'+name+'" height="20px">';
+    return '<img src="./app/img/emoji/'+name+'.png" title="'+name+'" height="20px">';
   } else {
     return match;
   }

@@ -10,7 +10,7 @@ const electronVersion = config.devDependencies['electron'].match(/[\d.]+/)[0];
 const options = {
 	asar: true,
 	dir: '.',
-	icon: './img/markdownify.icns',
+	icon: './app/img/markdownify.icns',
 	name: 'Markdownify',
 	out: 'dist',
 	overwrite: true,
