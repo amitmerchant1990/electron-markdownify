@@ -26,14 +26,15 @@ var createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 1400,
     height: 800,
-    icon: __dirname+'/app/img/favicon.ico'
+    icon: __dirname+'/app/img/markdownify.ico',
+    title: appDetails.productName
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(mainPage);
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
