@@ -52,7 +52,7 @@
 * Full screen mode
   - Write distraction free.
 * Cross platform
-  - Windows, Mac and Linux ready.
+  - Windows, macOS and Linux ready.
 
 ## How To Use
 
@@ -81,7 +81,7 @@ You can [download](https://github.com/amitmerchant1990/electron-markdownify/rele
 
 ## Credits
 
-This software uses code from several open source packages.
+This software uses following open source packages.
 
 - [Electron](http://electron.atom.io/)
 - [Node.js](https://nodejs.org/)
