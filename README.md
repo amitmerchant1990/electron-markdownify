@@ -112,7 +112,7 @@ This software uses following open source packages.
 
 ## License
 
-[MIT](https://github.com/amitmerchant1990/electron-markdownify/blob/master/LICENSE.md)
+MIT
 
 ---
 
