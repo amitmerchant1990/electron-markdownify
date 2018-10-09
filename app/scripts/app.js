@@ -51,6 +51,8 @@ $(() => {
     // get value right from instance
     //yourTextarea.value = cMirror.getValue();
     var markdownText = cMirror.getValue();
+    // Convert emoji's
+    markdownText = replaceWithEmojis(markdownText);
     latexText = katex.renderLaTeX(markdownText);
 
     marked.setOptions({
@@ -69,8 +71,8 @@ $(() => {
               smartLists: true,
               smartypants: false
             });
-
-    markdownArea.innerHTML = replaceWithEmojis(html);
+    
+    markdownArea.innerHTML = html;
 
     //Md -> HTML
     converter = new showdown.Converter();
