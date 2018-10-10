@@ -81,7 +81,7 @@ You can [download](https://github.com/amitmerchant1990/electron-markdownify/rele
 
 ## Credits
 
-This software uses following open source packages.
+This software uses the following open source packages:
 
 - [Electron](http://electron.atom.io/)
 - [Node.js](https://nodejs.org/)
