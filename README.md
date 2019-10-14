@@ -81,7 +81,7 @@ You can [download](https://github.com/amitmerchant1990/electron-markdownify/rele
 
 ## Emailware
 
-Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or has helped you in anyway, I'd like you send me an email on <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
+Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
 
 ## Credits
 
