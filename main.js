@@ -27,7 +27,10 @@ var createWindow = () => {
         width: 1400,
         height: 800,
         icon: __dirname + '/app/img/markdownify.ico',
-        title: appDetails.productName
+        title: appDetails.productName,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
 
     // and load the index.html of the app.
