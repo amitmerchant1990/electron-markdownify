@@ -1,15 +1,16 @@
-html, body, section, .full-height {
+html,
+body,
+section,
+.full-height {
     height: 100%;
 }
 
-#pad{
-    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
-
+#pad {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     border: none;
     overflow: auto;
     outline: none;
     resize: none;
-
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -20,62 +21,67 @@ html, body, section, .full-height {
 }
 
 .pref {
-  float: right;
-  width: 50%;
-  padding-right: 10px;
+    float: right;
+    width: 50%;
+    padding-right: 10px;
 }
+
 .pref label {
     vertical-align: middle;
+    font-size: 12px;
 }
+
 .pref .module {
     float: left;
     width: 50%;
 }
+
 .pref .format {
     text-align: right;
 }
+
 .mode {
-  float: left;
-  width: 50%;
-  text-align: left;
-  padding-left: 10px;
+    float: left;
+    width: 50%;
+    text-align: left;
+    padding-left: 10px;
 }
 
 .mdHtml {
-  display:none;
-  width:100%;
-  height:100%;
-  resize:none;
-  overflow:auto;
+    display: none;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    overflow: auto;
 }
 
-.optContainer{
-  position:fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-  height: 23px;
-  box-shadow: 0px 1px 11px -2px rgba(0,0,0,0.75);
+.optContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 24px;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.25);
 }
 
-#htmlPreview:focus{
-  outline: 1px solid #ECE6E6;
+#htmlPreview:focus {
+    outline: 1px solid #ECE6E6;
 }
 
-#toolbarArea{
-  position: fixed;
-  top: 25px;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-  height: 28px;
-  display:none;
-  border-bottom: 1px #BFBFBF solid;
-  background-color: #E8E8E8;
+#toolbarArea {
+    position: fixed;
+    top: 25px;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 28px;
+    display: none;
+    border-bottom: 1px #BFBFBF solid;
+    background-color: #E8E8E8;
 }
 
-.editor-toolbar{
+.editor-toolbar {
     display: inline-block;
     text-align: center;
     text-decoration: none!important;
@@ -105,9 +111,62 @@ html, body, section, .full-height {
     margin: 0 6px;
 }
 
-.toolContainer{
-  width: 16px;
-  float: left;
+.toolContainer {
+    width: 16px;
+    float: left;
+}
+
+input[type="radio"] {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.switch-field {
+    display: flex;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+.switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+    background-color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    padding: 3px 8px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+.switch-field input:checked+label {
+    background-color: #BDBDBD;
+    box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+    border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+    border-radius: 0 4px 4px 0;
+}
+
+.preview-pane {
+    float: right;
 }
 
 input[type="radio"]:checked:before {
@@ -146,64 +205,65 @@ input[type="radio"]:checked:before {
 .markdown-help-content tr:first-child td {
     border-top: 0;
 }
+
 .markdown-help-content td {
-    border-top: 1px solid rgba(38,50,56,.1);
+    border-top: 1px solid rgba(38, 50, 56, .1);
     min-width: 180px;
 }
 
-.preview-dark-mode{
+.preview-dark-mode {
     background: #272727;
     color: #E0E0E0;
 }
 
-.preview-dark-mode textarea{
+.preview-dark-mode textarea {
     background: #272727;
     color: #E0E0E0;
 }
 
-.cmpad{
-  padding-right: 0;
-  padding-left: 0;
+.cmpad {
+    padding-right: 0;
+    padding-left: 0;
 }
 
 @media print {
-  html, body {
-      height: 99%;
-  }
-
-  #editArea{
-    padding-top: 0 !important;
-  }
-
-  .optContainer, #toolbarArea, #textPanel {
-    display: none;
-  }
-
-  #markdown{
-    height: 100%;
-  }
-
-  #previewPanel{
-     height: auto;
-     overflow: visible;
-  }
-
-  ::-webkit-scrollbar {
-      width: 0; /*new*/
-      display: none;
-  }
+    html,
+    body {
+        height: 99%;
+    }
+    #editArea {
+        padding-top: 0 !important;
+    }
+    .optContainer,
+    #toolbarArea,
+    #textPanel {
+        display: none;
+    }
+    #markdown {
+        height: 100%;
+    }
+    #previewPanel {
+        height: auto;
+        overflow: visible;
+    }
+     ::-webkit-scrollbar {
+        width: 0;
+        /*new*/
+        display: none;
+    }
 }
 
 ::-webkit-scrollbar {
-    width: 5px; /*new*/
+    width: 5px;
+    /*new*/
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }

@@ -17,19 +17,24 @@
           <span class="toolContainer">
             <a id="angleToolBar" title="Toolbar" class="fa fa-angle-double-right" onclick="showToolBar();" style="cursor: pointer;text-decoration:none;"></a>
           </span>
-          <span>
-            <label style="vertical-align: middle;" title="Light Mode"><input type="radio" name="changeTheme" id="lightThemeRadio" value="light" onclick="changeTheme(this);" title="Light Mode" checked="checked"> <b>Light</b></label>
-            <label style="vertical-align: middle;" title="Dark Mode"><input type="radio" name="changeTheme" id="darkThemeRadio" value="dark" onclick="changeTheme(this);" title="Dark Mode"> <b>Dark</b></label>
+          <span class="switch-field">
+            <input type="radio" name="changeTheme" id="lightThemeRadio" value="light" onclick="changeTheme(this);" title="Light Mode" checked="checked"/>
+            <label for="lightThemeRadio">Light</label>
+            <input type="radio" name="changeTheme" id="darkThemeRadio" value="dark" onclick="changeTheme(this);" title="Dark Mode" />
+            <label for="darkThemeRadio">Dark</label>
           </span>
         </div>
         <div class="pref" id="pref">
           <div class="module">
             <label><input type="checkbox" id="syncScroll" checked> Sync Scrolling</label>
           </div>
-          <div class="module format">
-            <label><input type="radio" name="showPreference" id="htmlRadio" value="html" onclick="clkPref(this);"> <b>HTML</b></label>
-            <label><input type="radio" name="showPreference" id="previewRadio" value="preview" onclick="clkPref(this);" checked="checked"> <b>Preview</b></label>
+          <div class="switch-field preview-pane">
+            <input type="radio" name="showPreference" id="htmlRadio" value="html" onclick="clkPref(this);"/>
+            <label for="htmlRadio">HTML</label>
+            <input type="radio" name="showPreference" id="previewRadio" value="preview" onclick="clkPref(this);" checked="checked" />
+            <label for="previewRadio">Preview</label>
           </div>
+
         </div>
       </div>
       <div id="toolbarArea">
@@ -58,7 +63,7 @@
           <div class="col-md-6 full-height cmpad" style="box-shadow: -10px 13px 6px 10px rgba(0,0,0,0.4);" id="textPanel">
             <textarea  id="plainText" placeholder="Write your Markdown here.." autofocus></textarea>
           </div>
-          <div class="col-md-6 full-height" style="overflow-y: auto;display:block;" id="previewPanel">
+          <div class="col-md-6 full-height" style="overflow-y: auto;display:block;padding-top: 5px;" id="previewPanel">
             <div id="markdown"></div>
             <textarea id="htmlPreview" class="mdHtml"></textarea>
           </div>

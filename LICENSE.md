@@ -1,5 +1,5 @@
 The MIT License (MIT)
-Copyright (c) 2016 Amit Merchant <bullredeyes@gmail.com>
+Copyright (c) 2020 Amit Merchant <bullredeyes@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
