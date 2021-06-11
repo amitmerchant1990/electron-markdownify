@@ -1,23 +1,27 @@
-// Handling file saving through IPCRenderer
-var saveAs = () => {
+
+const alertIfError = (error) => {
+  if(error) alert(error);
+};
+
+const saveAs = () => {
   storage.get('markdown-savefile', (error, data) => {
     options = {};
     if ('filename' in data) {
       options.defaultPath = data.filename;
     }
     dialog.showSaveDialog(options, (fileName) => {
-      if (fileName === undefined){
-        console.log("You didn't save the file");
+      if (fileName === undefined) {
+        console.log('You didn\'t save the file');
         return;
       }
 
-      storage.set('markdown-savefile', {'filename' : fileName}, (error) => { if (error) alert(error); });
+      storage.set('markdown-savefile', {'filename': fileName}, alertIfError);
 
-      var mdValue = cm.getValue();
+      const mdValue = cm.getValue();
       // fileName is a string that contains the path and filename created in the save file dialog.
       fs.writeFile(fileName, mdValue, (err) => {
-        if(err){
-          alert("An error ocurred creating the file "+ err.message)
+        if (err) {
+          alert(`An error occurred creating the file ${err.message}`)
         }
       });
       this.setClean();
@@ -25,36 +29,29 @@ var saveAs = () => {
       this.updateWindowTitle(fileName);
     });
   });
-}
+};
 
-ipc.on('file-new', () => {
-  storage.set('markdown-savefile', {}, (error) => { if (error) alert(error); });
-  currentFile = '';
-  cm.getDoc().setValue("");
-});
-
-// Handling file saving through IPCRenderer
-ipc.on('file-save', () => {
+const saveFile = () => {
   storage.get('markdown-savefile', (error, data) => {
     if (error) {
       saveAs();
       return;
     }
     if ('filename' in data) {
-      var fileName = data.filename;
-      if (fileName === undefined){
-        console.log("You didn't save the file");
+      const fileName = data.filename;
+      if (fileName === undefined) {
+        console.log('You didn\'t save the file');
         return;
       }
 
-      storage.set('markdown-savefile', {'filename' : fileName}, (error) => { if (error) alert(error); });
+      storage.set('markdown-savefile', {'filename': fileName}, alertIfError);
 
-      var mdValue = cm.getValue();
+      const mdValue = cm.getValue();
       // fileName is a string that contains the path and filename created in the save file dialog.
       fs.writeFile(fileName, mdValue, (err) => {
-       if(err){
-         alert("An error ocurred creating the file "+ err.message)
-       }
+        if (err) {
+          alert(`An error occurred creating the file ${err.message}`)
+        }
       });
       this.setClean();
       this.currentFile = fileName;
@@ -63,8 +60,88 @@ ipc.on('file-save', () => {
       saveAs();
     }
   });
-});
+};
 
+const resetFile = () => {
+  storage.set('markdown-savefile', {}, alertIfError);
+  setClean();
+  this.currentFile = '';
+  updateWindowTitle();
+  cm.getDoc().setValue('');
+};
+
+const saveAsAndReset = () => {
+  dialog.showSaveDialog({}, (fileName) => {
+    if (fileName === undefined) {
+      console.log('You didn\'t save the file');
+      return;
+    }
+
+    storage.set('markdown-savefile', {'filename': fileName}, alertIfError);
+
+    const mdValue = cm.getValue();
+    // fileName is a string that contains the path and filename created in the save file dialog.
+    fs.writeFile(fileName, mdValue, (err) => {
+      if (err) {
+        alert(`An error occurred creating the file ${err.message}`);
+      }
+    });
+    resetFile();
+  });
+};
+
+const newFile = () => {
+  if (!isClean()) { // File is modified
+    const options = {
+      title: 'You made some changes',
+      type: 'question',
+      message: 'Do you want to save the file?',
+      buttons: ['Save', 'Don\'t Save', 'Cancel']
+    };
+    dialog.showMessageBox(options, (buttonIndex) => {
+      if (buttonIndex === 0) { // If Save is pressed
+        storage.get('markdown-savefile', (error, data) => {
+          if (error) {
+            saveAsAndReset();
+            return;
+          }
+          if ('filename' in data) {
+            const fileName = data.filename;
+            if (fileName === undefined) {
+              console.log('You didn\'t save the file');
+              return;
+            }
+
+            storage.set('markdown-savefile', {'filename': fileName}, alertIfError);
+
+            const mdValue = cm.getValue();
+            // fileName is a string that contains the path and filename created in the save file dialog.
+            fs.writeFile(fileName, mdValue, (err) => {
+              if (err) {
+                alert(`An error occurred creating the file ${err.message}`);
+              }
+            });
+            resetFile();
+          } else { // if filename not in data show the save file dialog
+            saveAsAndReset();
+          }
+        });
+      } else if (buttonIndex === 1) { // if Don't save is pressed
+        resetFile();
+      }
+    });
+  } else { // if file is clean
+    resetFile();
+  }
+};
+
+// Handling new file creation through IPCRenderer
+ipc.on('file-new', newFile);
+
+// Handling file saving through IPCRenderer
+ipc.on('file-save', saveFile);
+
+// Handling file saving through IPCRenderer
 ipc.on('file-save-as', saveAs);
 
 // Handling file opening through IPCRenderer
@@ -72,7 +149,7 @@ ipc.on('file-open', () => {
   storage.get('markdown-savefile', (error, data) => {
     if (error) alert(error);
 
-    var options = {'properties' : ['openFile'], 'filters' : [{name: 'Markdown', 'extensions':['md']}]};
+    const options = {'properties' : ['openFile'], 'filters' : [{name: 'Markdown', 'extensions':['md']}]};
     if ('filename' in data) {
       options.defaultPath = data.filename;
     }
@@ -83,13 +160,13 @@ ipc.on('file-open', () => {
         return;
       }
 
-      storage.set('markdown-savefile', {'filename' : fileName[0]}, (error) => { if (error) alert(error); });
+      storage.set('markdown-savefile', {'filename' : fileName[0]}, alertIfError);
 
-      var mdValue = cm.getValue();
+      const mdValue = cm.getValue();
       // fileName is a string that contains the path and filename created in the save file dialog.
       fs.readFile(fileName[0], 'utf-8', (err, data) => {
         if(err){
-          alert("An error ocurred while opening the file "+ err.message)
+          alert(`An error ocurred while opening the file ${err.message}`)
         }
         cm.getDoc().setValue(data);
       });
