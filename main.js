@@ -18,12 +18,12 @@ var localShortcut = require('electron-localshortcut');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow;
+// let mainWindow;
 let isQuitting = false;
 
 var createWindow = () => {
     // Create the browser window.
-    mainWindow = new BrowserWindow({
+    let mainWindow = new BrowserWindow({
         width: 1400,
         height: 800,
         icon: __dirname + '/app/img/markdownify.ico',
@@ -179,6 +179,45 @@ var createWindow = () => {
                     let focusedWindow = BrowserWindow.getFocusedWindow();
                     let isFullScreen = focusedWindow.isFullScreen();
                     focusedWindow.setFullScreen(!isFullScreen);
+                },
+                label: "Toggle a Screen",
+                accelerator: "F11",
+                click: () => {
+                    let focusedWindow = mainWindow.openDevTools();
+                }
+            }]
+        },
+        {
+            label: "&Themes",
+            submenu: [{
+                label: "Nord",
+                click: () => {
+                    let focusWindow = BrowserWindow.getFocusedWindow()
+                    focusWindow.webContents.send("setTheme" , "nord")
+                }
+            } , {
+                label: "Ayu Colors",
+                click: () => {
+                    let focusWindow = BrowserWindow.getFocusedWindow()
+                    focusWindow.webContents.send("setTheme" , "ayu_colors")
+                }
+            } , {
+                label: "Dracula",
+                click: () => {
+                    let focusWindow = BrowserWindow.getFocusedWindow()
+                    focusWindow.webContents.send("setTheme" , "dracula")
+                }
+            } , {
+                label: "Gruvbox",
+                click: () => {
+                    let focusWindow = BrowserWindow.getFocusedWindow()
+                    focusWindow.webContents.send("setTheme" , "gruvbox")
+                }
+            } , {
+                label: "Oceanic",
+                click: () => {
+                    let focusWindow = BrowserWindow.getFocusedWindow()
+                    focusWindow.webContents.send("setTheme" , "oceanic")
                 }
             }]
         },

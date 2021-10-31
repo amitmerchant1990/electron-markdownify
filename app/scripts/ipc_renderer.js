@@ -144,8 +144,22 @@ ipc.on('file-pdf', () => {
     ]
   };
 
+  console.log(":okldmfklmfkl")
+
   dialog.showSaveDialog(options, (fileName) => {
     ipc.send('print-to-pdf', fileName);
   });
 
 });
+
+ipc.on("setTheme" , (event , theme) => {
+  const styleElem = document.createElement("link")
+
+  styleElem.rel = "stylesheet"
+
+  styleElem.type = "text/css"
+
+  styleElem.href = `./app/styles/themes/${theme}.css`
+
+  document.body.appendChild(styleElem)
+})
