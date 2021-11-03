@@ -144,8 +144,6 @@ ipc.on('file-pdf', () => {
     ]
   };
 
-  console.log(":okldmfklmfkl")
-
   dialog.showSaveDialog(options, (fileName) => {
     ipc.send('print-to-pdf', fileName);
   });
