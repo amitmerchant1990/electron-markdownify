@@ -7,6 +7,17 @@ h4{
   font-weight: bold;
 }
 
+.btn-purple {
+  color: #fff;
+  background-color: #673AB7;
+  border-color: #673AB7;
+}
+
+.btn-purple:hover {
+  opacity: 1;
+  color: #fff;
+}
+
 pre {
   border: 0;
   background-color: transparent;
@@ -16,6 +27,10 @@ pre {
 .h3, h3 {
   font-size: 20px;
   font-weight: 400;
+}
+
+.h2, h2 {
+  font-size: 25px;
 }
 
 .col-md-4 p{
@@ -28,6 +43,10 @@ pre {
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.key-features {
+  margin-top: 60px;
 }
 
 .credits p{
