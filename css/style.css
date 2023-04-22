@@ -11,9 +11,38 @@ h4{
   color: #fff;
   background-color: #673AB7;
   border-color: #673AB7;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 10px;
 }
 
 .btn-purple:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+.btn-purple:focus {
+  opacity: 1;
+  color: #fff;
+}
+
+.btn-maroon {
+  color: #fff;
+  background-color: #d0215d;
+  border-color: #d0215d;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 10px;
+}
+
+.btn-maroon:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+.btn-maroon:focus {
   opacity: 1;
   color: #fff;
 }
@@ -83,7 +112,7 @@ pre {
   bottom: -110px;
   padding: 40px;
   margin: 0 auto;
-  margin-top: -120px;
+  margin-top: -100px;
   width: 900px;
   height: auto;
 }
@@ -139,7 +168,8 @@ pre {
 }
 
 .app-name {
-  text-shadow: 0px 1px 8px #ffffffa1;
+  text-shadow: 0px 1px 10px #ffffffa1;
+  letter-spacing: 2px;
 }
 
 .button-container {
@@ -157,19 +187,19 @@ footer {
 }
 
 .green-tile{
-  background-color: #4CAF50;
+  background-color: #446b7e;
 }
 
 .pink-tile{
-  background-color: #F06292;
+  background-color: #c2416c;
 }
 
 .yellow-tile{
-  background-color: #FF9800;
+  background-color: #FF5722;
 }
 
 .blue-tile{
-  background-color: #2196F3;
+  background-color: #0d568f;
 }
 
 .maroon-tile{
