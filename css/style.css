@@ -18,12 +18,12 @@ h4{
 }
 
 .btn-purple:hover {
-  opacity: 1;
+  opacity: 0.9;
   color: #fff;
 }
 
 .btn-purple:focus {
-  opacity: 1;
+  opacity: 0.9;
   color: #fff;
 }
 
@@ -38,12 +38,12 @@ h4{
 }
 
 .btn-maroon:hover {
-  opacity: 1;
+  opacity: 0.9;
   color: #fff;
 }
 
 .btn-maroon:focus {
-  opacity: 1;
+  opacity: 0.9;
   color: #fff;
 }
 
