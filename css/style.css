@@ -23,9 +23,17 @@ pre {
   font-size: 16px;
 }
 
+.flex-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .credits p{
   color: #555;
   font-size: 16px;
+  padding: 16px;
 }
 
 .develop p{
@@ -92,6 +100,8 @@ pre {
 .tile{
   padding: 1.25rem 2.5rem 1.25rem 1.5rem;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .tile p{
@@ -106,6 +116,21 @@ pre {
   border-radius: 10px;
   margin: 6px;
   height: 180px;
+  flex-grow: 1;
+}
+
+.app-name {
+  text-shadow: 0px 1px 8px #ffffffa1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer {
+  margin-bottom: 40px;
 }
 
 .purple-tile{
