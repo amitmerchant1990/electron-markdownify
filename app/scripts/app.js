@@ -117,18 +117,18 @@ $(() => {
     var $prev = $('#previewPanel'),
         $markdown = $('#markdown'),
         $syncScroll = $('#syncScroll'),
-        canScroll; // Initialized below.
+        canScroll;
 
     // Retaining state in boolean since this will be more CPU friendly instead of constantly selecting on each event.
     var toggleSyncScroll = () => {
-            console.log('Toggle scroll synchronization.');
-            canScroll = $syncScroll.is(':checked');
+        console.log('Toggle scroll synchronization.');
+        canScroll = $syncScroll.is(':checked');
 
-            config.set('isSyncScroll', canScroll);
-            // If scrolling was just enabled, ensure we're back in sync by triggering window resize.
-            if (canScroll) $(window).trigger('resize');
-        }
-        //toggleSyncScroll();
+        config.set('isSyncScroll', canScroll);
+        // If scrolling was just enabled, ensure we're back in sync by triggering window resize.
+        if (canScroll) $(window).trigger('resize');
+    }
+    
     $syncScroll.on('change', toggleSyncScroll);
 
     const isSyncScroll = config.get('isSyncScroll');
@@ -137,10 +137,10 @@ $(() => {
     } else {
         $syncScroll.attr('checked', false);
     }
+    
     /**
      * Scrollable height.
      */
-
     var codeScrollable = () => {
         var info = cm.getScrollInfo(),
             fullHeight = info.height,
