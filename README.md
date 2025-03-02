@@ -98,7 +98,7 @@ This software uses the following open source packages:
 
 ## Related
 
-[markdownify-web](https://github.com/amitmerchant1990/markdownify-web) - Web version of Markdownify
+[Try Web version of Markdownify](https://notepad.js.org/markdown-editor/)
 
 ## Support
 
