@@ -14,9 +14,10 @@ Darcula color scheme from the JetBrains family of IDEs
 
 .hljs {
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 28px;
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .hljs-strong,
