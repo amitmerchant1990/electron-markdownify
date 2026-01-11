@@ -51,6 +51,11 @@ pre {
   border: 0;
   background-color: transparent;
   white-space: nowrap;
+  padding: 9.5px 0;
+}
+
+.h1, h1 {
+  font-size: 45px;
 }
 
 .h3,
@@ -61,7 +66,7 @@ h3 {
 
 .h2,
 h2 {
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .col-md-4 p {
