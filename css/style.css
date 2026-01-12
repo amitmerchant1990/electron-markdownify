@@ -134,7 +134,7 @@ h2 {
   padding: 40px;
   margin: 0 auto;
   margin-top: -100px;
-  width: 900px;
+  width: clamp(600px, 100dvh, 900px);
   height: auto;
 }
 
@@ -273,4 +273,29 @@ footer {
     .container {
         width: 950px;
     }
+}
+
+/* Very short screens */
+@media (max-height: 500px) {
+  .jumbotron {
+    flex-direction: row-reverse;
+    padding-bottom: 0;
+  }
+
+  .jumbotron > * {
+    flex: 1;
+  }
+
+  .jumbotron .text-center {
+    text-align: left;
+  }
+
+  .custom-image {
+    margin-top: 0;
+    bottom: 0;
+  }
+
+  .button-container {
+    justify-content: left;
+  }
 }
