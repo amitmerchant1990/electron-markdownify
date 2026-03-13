@@ -62,6 +62,23 @@ $(() => {
             }
         });
 
+        // Validating the harmful urls
+        const renderer = new marked.Renderer();
+
+        renderer.link = function(href, title, text) {
+        
+            // block dangerous protocols
+            if (!href || /^(javascript|data|vbscript):/i.test(href.trim())) {
+                href = "#";
+            }
+        
+            return `<a href="${href}">${text}</a>`;
+        };
+        
+        marked.setOptions({
+            renderer: renderer
+        });
+
         //Md -> Preview
         html = marked(latexText, {
             gfm: true,
