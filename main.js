@@ -179,11 +179,6 @@ var createWindow = () => {
                     let focusedWindow = BrowserWindow.getFocusedWindow();
                     let isFullScreen = focusedWindow.isFullScreen();
                     focusedWindow.setFullScreen(!isFullScreen);
-                },
-                label: "Toggle a Screen",
-                accelerator: "F11",
-                click: () => {
-                    let focusedWindow = mainWindow.openDevTools();
                 }
             }]
         },
